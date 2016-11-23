@@ -1,4 +1,4 @@
-package java.com.akotuyk.app.homework.lesson5;
+package com.akotuyk.app.homework.lesson5;
 
 import org.junit.Assert;
 import org.junit.Test;

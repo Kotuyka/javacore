@@ -1,6 +1,7 @@
-package java.com.akotuyk.runners.homework.lesson5;
+package com.akotuyk.runners.homework.lesson5;
 
-import java.com.akotuyk.app.homework.lesson5.*;
+import com.akotuyk.app.homework.lesson5.*;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -97,7 +98,7 @@ public class Main {
             String answer = input.next();
             if (answer.equals("no")){
                 menu();}
-            if (answer.equals("yes")){
+            if (answer.equals("yes")){            // НЕ ПОНИМАЮ ПОЧЕМУ ТУТ ОШИБКА. Вместо выхода, оно переходит на елс, и замыкает цикл. Сначала этого небыло, а потом появилось и я не понимаю почему.
                 System.out.println("Bye!");
             } else {System.out.println("Is it hard to enter a yes/no? You entered the WRONG VALUE. Correct yourself...");
                 escFunction();}

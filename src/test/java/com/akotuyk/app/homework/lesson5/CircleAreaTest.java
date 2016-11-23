@@ -1,13 +1,11 @@
-package java.com.akotuyk.app.homework.lesson5;
+package com.akotuyk.app.homework.lesson5;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.com.akotuyk.app.homework.lesson5.CircleArea;
-
 public class CircleAreaTest {
 
-    public CirclecArea circleArea = new CircleArea();
+    public CircleArea circleArea = new CircleArea();
 
     @Test
     public void calculateEquals() throws Exception {
