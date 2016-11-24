@@ -4,4 +4,5 @@ public class EvenOrOdd {
 
     public static boolean isEven(double number) {
         return (number % 2 == 0);}
+
 }

@@ -1,9 +1,23 @@
 package com.akotuyk.app.homework.lesson5;
 
-import org.junit.Assert;
-import org.junit.Test;
+import junitparams.FileParameters;
+import junitparams.JUnitParamsRunner;
+import junitparams.mappers.CsvWithHeaderMapper;
+import org.junit.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@RunWith(JUnitParamsRunner.class)
 public class EvenOrOddTest {
+
+    @Before
+    public void beforeMethod() {
+        System.out.println("Test start"); }
+
+    @After
+    public void afterMethod() {
+        System.out.println("Test finished"); }
 
     public EvenOrOdd evenOrOdd = new EvenOrOdd();
 
@@ -70,5 +84,43 @@ public class EvenOrOddTest {
         double number = 5;
         Assert.assertNotSame(true, evenOrOdd.isEven(number));}
 
+    @Test
+    @Ignore("Not ready yet")
+    public void isEvenForIgnore() throws Exception {
+        double number = 5;
+        Assert.assertNotSame(true, evenOrOdd.isEven(number));}
+
+    @Test(timeout = 1000)
+    public void isEvenWithTimeout() throws Exception {
+        double number = 5;
+        Assert.assertNotSame(true, evenOrOdd.isEven(number));}
+
+    // ****************************************************************************
+    // пошли тесты CSV, для урока №6
+
+    @Test
+    @FileParameters(value = "src/resources/lesson6/EvenOrOddCsv/EvenOrOddTrue.csv", mapper = CsvWithHeaderMapper.class)
+    public void EvenOrOddCsvTrueTest(double number){
+        Assert.assertTrue(EvenOrOdd.isEven(number));}
+
+    @Test
+    @FileParameters(value = "src/resources/lesson6/EvenOrOddCsv/EvenOrOddFalse.csv", mapper = CsvWithHeaderMapper.class)
+    public void EvenOrOddCsvFalseTest(double number){
+        Assert.assertFalse(EvenOrOdd.isEven(number));}
+
+    @Test
+    @FileParameters(value = "src/resources/lesson6/EvenOrOddCsv/EvenOrOddNotNull.csv", mapper = CsvWithHeaderMapper.class)
+    public void EvenOrOddCsvNotNullTest(double number){
+        Assert.assertNotNull(EvenOrOdd.isEven(number));}
+
+    @Test
+    @FileParameters(value = "src/resources/lesson6/EvenOrOddCsv/EvenOrOddNotSame.csv", mapper = CsvWithHeaderMapper.class)
+    public void EvenOrOddCsvNotSameTest(double number){
+        Assert.assertNotSame(false, EvenOrOdd.isEven(number));}
+
+    @Test
+    @FileParameters(value = "src/resources/lesson6/EvenOrOddCsv/EvenOrOddSame.csv", mapper = CsvWithHeaderMapper.class)
+    public void EvenOrOddCsvSameTest(double number){
+        Assert.assertSame(true, EvenOrOdd.isEven(number));}
 }
 
