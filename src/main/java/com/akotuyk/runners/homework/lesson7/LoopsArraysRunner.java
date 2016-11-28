@@ -1,14 +1,11 @@
 package com.akotuyk.runners.homework.lesson7;
-
 import com.akotuyk.app.homework.lesson7.*;
+import com.akotuyk.runners.homework.lesson5.Main;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/**
- * Created by Huly-Buly on 27.11.2016.
- */
 public class LoopsArraysRunner {
     public static int[] intArray;
     public static int[][] intTwoDimensionalArray;
@@ -24,9 +21,9 @@ public class LoopsArraysRunner {
                 "(c) an array with 15 random numbers from 0 to 9;\n"+
                 "(d) an array with 15 random numbers from 0 to 999;\n"+
                 "(e) a two-dimensional array [8][5] with random numbers from 10 to 99.;\n"+
-                "(f) ;\n"+
+                "(f) go to Homework of Lesson 5;\n"+
                 "(g) *** a two-dimensional array [8][5] with random numbers from 1 to 999;\n"+
-                "(h) *** to enter a series of numbers to determine their amount;\n"+
+                "(h) *** to enter a series of numbers to determine their amount;\n"+ // НЕ ПОЛУЧИЛОСЬ РЕАЛИЗОВАТЬ ДО КОНЦА.
                 "(q) to exit.\n"+
                 "What do you choose? : ");
         choose();}
@@ -106,9 +103,10 @@ public class LoopsArraysRunner {
             System.out.println("We done with (e).");
             escFunction();}
 
-//        else if (menuInput.equals("f")) {
-//            System.out.print("You choose (e) an two-dimensional array [8][5] with random numbers from 10 to 99.\n" +
-//                    "We need are calculating...\n");
+        else if (menuInput.equals("f")) {
+            System.out.print("go to Homework of Lesson 5\n" +
+                    "See you!\n");
+            Main.main();}
 
         else if (menuInput.equals("g")) {
             System.out.print("You choose (g) an two-dimensional array [8][5] with random numbers from 1 to 999.\n" +
@@ -131,49 +129,24 @@ public class LoopsArraysRunner {
 
         else if (menuInput.equals("h")) {
             System.out.println("You choose (h) to enter a series of numbers to determine their amount.");
-            intTwoDimensionalArray = ExerciseH.intTwoDimensionalArray2();
-            System.out.println("The ammount of your numbers is: " + ExerciseH.sumArray2Elements());
+            // intTwoDimensionalArray = ExerciseH.intTwoDimensionalArray2();
+            int[][] intTwoDimensionalArray = new int[2][2];                         // задаем массив через сканер
+            for (int j = 1; j < intTwoDimensionalArray.length; j++) {
+                for (int k = 0; k < intTwoDimensionalArray[j].length; k++) {
+                    intTwoDimensionalArray[j][k]=LoopsArraysRunner.scanerNumber();}}
+//            for (int j = 0; j < intTwoDimensionalArray.length; j++) {                для вывода массива. По условиям задания
+//                for (int k = 0; k < 2; k++) {                                         это не нужно
+//                    System.out.print(intTwoDimensionalArray[j][k]);
+//                        System.out.print(" ");}
+//                    System.out.println();}
+            System.out.println("The ammount of your numbers is: " + ExerciseH.sumArray2Elements()); // считаем сумму
             System.out.println("We done with (g).");
             escFunction();}
 
-//            System.out.println("A two-dimensional array [8][5] with random numbers from 1 to 999 is: ");
-//            for (int j = 0; j < intTwoDimensionalArray.length; j++) {
-//                int x = j + 1;
-//                System.out.print("List "+ x + ": ");
-//                for (int k = 0; k < 5; k++) {
-//                    if (intTwoDimensionalArray[j][k] < 100){
-//                        if (intTwoDimensionalArray[j][k] < 10){
-//                            System.out.print("  " + intTwoDimensionalArray[j][k]);}
-//                        else {System.out.print(" " + intTwoDimensionalArray[j][k]);}}
-//                    else {System.out.print(intTwoDimensionalArray[j][k]);}
-//                    System.out.print(" ");}
-//                System.out.println();}
-//            System.out.println("We done with (g).");
-//            escFunction();}
-
-
-
-
-
-
-
-
-
-
-
-
         else if (menuInput.equals("q")) {
                 System.out.println("Bye!");
-            } else{System.out.println("Is it hard to enter a number? You entered the WRONG VALUE. Correct yourself...");
+            } else{System.out.println("Please, enter correct value. You entered the WRONG VALUE. Correct yourself...");
                 menu();}}
-
-//        } catch (InputMismatchException ex) {
-//            System.out.println("Is it hard to enter a letter? You entered the WRONG VALUE. Correct yourself...");
-//            menu();}}
-
-//    public static void equal(){
-//        System.out.println("They are equals");
-//        escFunction();}
 
     public static void escFunction(){
         System.out.println("Do you want to out? (yes/no)");
@@ -182,7 +155,7 @@ public class LoopsArraysRunner {
             String answer = input.next();
             if (answer.equals("no")){
                 menu();}
-            if (answer.equals("yes")){            // НЕ ПОНИМАЮ ПОЧЕМУ ТУТ ОШИБКА. Вместо выхода, оно переходит на елс, и замыкает цикл. Сначала этого небыло, а потом появилось и я не понимаю почему.
+            if (answer.equals("yes")){
                 System.out.println("Bye!");
             } else {System.out.println("Is it hard to enter a yes/no? You entered the WRONG VALUE. Correct yourself...");
                 escFunction();}
@@ -190,16 +163,10 @@ public class LoopsArraysRunner {
             System.out.println("Is it hard to enter a yes/no? You entered the WRONG VALUE. Correct yourself...");
             escFunction();}}
 
-    public static String scanerNumber(){
+    public static int scanerNumber(){
         Scanner input = new Scanner(System.in);
         System.out.println("Please, enter the number: ");
-        String likeNumber = input.next();
-        if (likeNumber.equals("exit")){
-            likeNumber = (int) 1000;}
-        if (likeNumber.indexOf()){            // НЕ ПОНИМАЮ ПОЧЕМУ ТУТ ОШИБКА. Вместо выхода, оно переходит на елс, и замыкает цикл. Сначала этого небыло, а потом появилось и я не понимаю почему.
-            System.out.println("Bye!");
-        } else {System.out.println("Is it hard to enter a yes/no? You entered the WRONG VALUE. Correct yourself...");
-            escFunction();}
+        int likeNumber = input.nextInt();
         return likeNumber;}
 
 }

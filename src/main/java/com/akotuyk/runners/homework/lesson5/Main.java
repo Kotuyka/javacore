@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static final double PI = 3.14d;
 
-    public static void main(String[] args) {
+    public static void main() {
         System.out.println("Welcome to my app. You can choose the number of action:");
         menu();}
 
