@@ -2,10 +2,10 @@ package com.akotuyk.app.homework.lesson7;
 
 public class ExerciseE {
 
-    public static int[][] randomArray () {
-        int[][] intTwoDimensionalArray = new int[8][5];
-        for (int j = 0; j <8; j++) {
-            for (int k = 0; k <5; k++) {
-                intTwoDimensionalArray[j][k]=( (int)((Math.random()*89) + 10));}}
+    public static int[][] randomArray (int a, int b,int c,int d) {
+        int[][] intTwoDimensionalArray = new int[a][b];
+        for (int j = 0; j <a; j++) {
+            for (int k = 0; k <b; k++) {
+                intTwoDimensionalArray[j][k]=( (int)((Math.random()*c) + d));}}
         return intTwoDimensionalArray;}
 }

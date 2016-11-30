@@ -1,29 +1,20 @@
 package com.akotuyk.app.homework.lesson7;
 
-import static com.akotuyk.runners.homework.lesson7.LoopsArraysRunner.intArray;
-
 public class ExerciseD {
 
-    public static int[] randomArray () {
-        int[] intArray = new int[15];
-        for (int i = 0; i <intArray.length ; i++) {
-            intArray[i]=( (int)((Math.random()*999) + 0));}
-        return intArray;
-    }
-
-    public static int maxIntArray () {
+    public static int maxIntArray (int[] a) {
         int maxIndex = 0;
-        for (int i = 0; i < intArray.length; i++) {
-            if (intArray[maxIndex] < intArray[i]) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[maxIndex] < a[i]) {
                 maxIndex = i;}}
-        return intArray[maxIndex];
+        return a[maxIndex];
     }
 
-    public static int minIntArray () {
+    public static int minIntArray (int[] b) {
         int minIndex = 0;
-        for (int i = 0; i < intArray.length; i++) {
-            if (intArray[minIndex] > intArray[i]) {
+        for (int i = 0; i < b.length; i++) {
+            if (b[minIndex] > b[i]) {
                 minIndex = i;}}
-        return intArray[minIndex];
+        return b[minIndex];
     }
 }

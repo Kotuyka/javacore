@@ -1,19 +1,19 @@
 package com.akotuyk.app.homework.lesson7;
 
-/**
- * Created by Huly-Buly on 27.11.2016.
- */
 public class ExerciseB {
 
-    public static int[] oddArray () {
-        int count = 0;
-        for (int a=1; a<=99; a+=2) {
-            count++;}
+    public static int[] oddArray (int count, int b) {
         int[] intArray = new int[count];
         int n=0;
-        for (int a=1; a<=99; a+=2) {
+        for (int a=1; a<=b; a+=2) {
             intArray [n] = a;
             n++;}
         return intArray;
     }
+
+    public static int countForArray (int b) {
+        int count = 0;
+        for (int a=1; a<=b; a+=2) {
+            count++;}
+        return count;}
 }
