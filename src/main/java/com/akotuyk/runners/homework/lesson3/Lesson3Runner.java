@@ -1,10 +1,11 @@
-package main.java.com.KotuykA.app.utils.runners;
+package com.akotuyk.runners.homework.lesson3;
 
-import main.java.com.KotuykA.app.utils.convertors.PrimitiveConvertor;
+import com.akotuyk.app.homework.lesson3.PrimitiveConvertor;
 
 public class Lesson3Runner {
-    public static void main(String [] args) {
+    public static void main(String[] args) {
         PrimitiveConvertor.floatToChar();
         PrimitiveConvertor.intToChar();
         PrimitiveConvertor.charToInt();
-    }}
+    }
+}

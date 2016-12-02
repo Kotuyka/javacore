@@ -2,18 +2,21 @@ package com.akotuyk.app.homework.lesson7;
 
 public class ExerciseB {
 
-    public static int[] oddArray (int count, int b) {
+    public int[] oddArray(int count, int b) {
         int[] intArray = new int[count];
-        int n=0;
-        for (int a=1; a<=b; a+=2) {
-            intArray [n] = a;
-            n++;}
+        int n = 0;
+        for (int a = 1; a <= b; a += 2) {
+            intArray[n] = a;
+            n++;
+        }
         return intArray;
     }
 
-    public static int countForArray (int b) {
+    public int countForArray(int b) {
         int count = 0;
-        for (int a=1; a<=b; a+=2) {
-            count++;}
-        return count;}
+        for (int a = 1; a <= b; a += 2) {
+            count++;
+        }
+        return count;
+    }
 }

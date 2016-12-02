@@ -66,9 +66,9 @@ public class MaxNumberTest {
     }
 
     @Test
-        public void compareNumbersNotSameTrue() throws Exception {
-            double number1 = 6, number2 = 8;
-            Assert.assertNotSame(true, maxNumber.compareNumbers(number1, number2));
+    public void compareNumbersNotSameTrue() throws Exception {
+        double number1 = 6, number2 = 8;
+        Assert.assertNotSame(true, maxNumber.compareNumbers(number1, number2));
     }
 
     @Test
