@@ -84,30 +84,30 @@ public class RightAngledTriangleTest {
     @Test
     @FileParameters(value = "src/resources/lesson6/rightangledtrianglecsv/RightAngledTriangleTrue.csv", mapper = CsvWithHeaderMapper.class)
     public void RightAngledTriangleCsvTrueTest(double side1, double side2, double side3) {
-        Assert.assertTrue(RightAngledTriangle.calculator(side1, side2, side3));
+        Assert.assertTrue(rightAngledTriangle.calculator(side1, side2, side3));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/rightangledtrianglecsv/RightAngledTriangleFalse.csv", mapper = CsvWithHeaderMapper.class)
     public void RightAngledTriangleCsvFalseTest(double side1, double side2, double side3) {
-        Assert.assertFalse(RightAngledTriangle.calculator(side1, side2, side3));
+        Assert.assertFalse(rightAngledTriangle.calculator(side1, side2, side3));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/rightangledtrianglecsv/RightAngledTriangleFalse.csv", mapper = CsvWithHeaderMapper.class)
     public void RightAngledTriangleCsvNotNullTest(double side1, double side2, double side3) {
-        Assert.assertNotNull(RightAngledTriangle.calculator(side1, side2, side3));
+        Assert.assertNotNull(rightAngledTriangle.calculator(side1, side2, side3));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/rightangledtrianglecsv/RightAngledTriangleFalse.csv", mapper = CsvWithHeaderMapper.class)
     public void RightAngledTriangleCsvNotSameTest(double side1, double side2, double side3) {
-        Assert.assertNotSame(true, RightAngledTriangle.calculator(side1, side2, side3));
+        Assert.assertNotSame(true, rightAngledTriangle.calculator(side1, side2, side3));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/rightangledtrianglecsv/RightAngledTriangleFalse.csv", mapper = CsvWithHeaderMapper.class)
     public void RightAngledTriangleCsvSameTest(double side1, double side2, double side3) {
-        Assert.assertSame(false, RightAngledTriangle.calculator(side1, side2, side3));
+        Assert.assertSame(false, rightAngledTriangle.calculator(side1, side2, side3));
     }
 }

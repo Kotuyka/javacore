@@ -90,30 +90,30 @@ public class MaxNumberTest {
     @Test
     @FileParameters(value = "src/resources/lesson6/maxnumberscsv/MaxNumbersTrue.csv", mapper = CsvWithHeaderMapper.class)
     public void MaxNumberCsvTrueTest(double number1, double number2) {
-        Assert.assertTrue(MaxNumber.compareNumbers(number1, number2));
+        Assert.assertTrue(maxNumber.compareNumbers(number1, number2));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/maxnumberscsv/MaxNumbersFalse.csv", mapper = CsvWithHeaderMapper.class)
     public void MaxNumberCsvFalseTest(double number1, double number2) {
-        Assert.assertFalse(MaxNumber.compareNumbers(number1, number2));
+        Assert.assertFalse(maxNumber.compareNumbers(number1, number2));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/maxnumberscsv/MaxNumbersFalse.csv", mapper = CsvWithHeaderMapper.class)
     public void MaxNumberCsvNotNullTest(double number1, double number2) {
-        Assert.assertNotNull(MaxNumber.compareNumbers(number1, number2));
+        Assert.assertNotNull(maxNumber.compareNumbers(number1, number2));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/maxnumberscsv/MaxNumbersFalse.csv", mapper = CsvWithHeaderMapper.class)
     public void MaxNumberCsvNotSameTest(double number1, double number2) {
-        Assert.assertNotSame(true, MaxNumber.compareNumbers(number1, number2));
+        Assert.assertNotSame(true, maxNumber.compareNumbers(number1, number2));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/maxnumberscsv/MaxNumbersFalse.csv", mapper = CsvWithHeaderMapper.class)
     public void MaxNumberCsvSameTest(double number1, double number2) {
-        Assert.assertSame(false, MaxNumber.compareNumbers(number1, number2));
+        Assert.assertSame(false, maxNumber.compareNumbers(number1, number2));
     }
 }

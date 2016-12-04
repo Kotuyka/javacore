@@ -117,7 +117,8 @@ public class LoopsArraysRunner {
             case "f":
                 System.out.print("go to Homework of Lesson 5\n" +
                         "See you!\n");
-                Main.main();
+                Main main = new Main();
+                main.menu();
                 break;
             case "g":
                 ExerciseG exG = new ExerciseG();

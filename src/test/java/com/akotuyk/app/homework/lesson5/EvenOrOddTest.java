@@ -133,31 +133,31 @@ public class EvenOrOddTest {
     @Test
     @FileParameters(value = "src/resources/lesson6/EvenOrOddCsv/EvenOrOddTrue.csv", mapper = CsvWithHeaderMapper.class)
     public void EvenOrOddCsvTrueTest(double number) {
-        Assert.assertTrue(EvenOrOdd.isEven(number));
+        Assert.assertTrue(evenOrOdd.isEven(number));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/EvenOrOddCsv/EvenOrOddFalse.csv", mapper = CsvWithHeaderMapper.class)
     public void EvenOrOddCsvFalseTest(double number) {
-        Assert.assertFalse(EvenOrOdd.isEven(number));
+        Assert.assertFalse(evenOrOdd.isEven(number));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/EvenOrOddCsv/EvenOrOddNotNull.csv", mapper = CsvWithHeaderMapper.class)
     public void EvenOrOddCsvNotNullTest(double number) {
-        Assert.assertNotNull(EvenOrOdd.isEven(number));
+        Assert.assertNotNull(evenOrOdd.isEven(number));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/EvenOrOddCsv/EvenOrOddNotSame.csv", mapper = CsvWithHeaderMapper.class)
     public void EvenOrOddCsvNotSameTest(double number) {
-        Assert.assertNotSame(false, EvenOrOdd.isEven(number));
+        Assert.assertNotSame(false, evenOrOdd.isEven(number));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/EvenOrOddCsv/EvenOrOddSame.csv", mapper = CsvWithHeaderMapper.class)
     public void EvenOrOddCsvSameTest(double number) {
-        Assert.assertSame(true, EvenOrOdd.isEven(number));
+        Assert.assertSame(true, evenOrOdd.isEven(number));
     }
 }
 

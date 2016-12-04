@@ -91,24 +91,24 @@ public class CircleAreaTest {
     @Test
     @FileParameters(value = "src/resources/lesson6/CircleAreaCsv/CircleAreaEquals.csv", mapper = CsvWithHeaderMapper.class)
     public void CircleAreaCsvEqualsTest(double PI, double side1, double expo) {
-        Assert.assertEquals(expo, CircleArea.calculate(PI, side1), 0);
+        Assert.assertEquals(expo, circleArea.calculate(PI, side1), 0);
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/CircleAreaCsv/CircleAreaNotEquals.csv", mapper = CsvWithHeaderMapper.class)
     public void CircleAreaCsvNotEqualsTest(double PI, double side1, double expo) {
-        Assert.assertNotEquals(expo, CircleArea.calculate(PI, side1));
+        Assert.assertNotEquals(expo, circleArea.calculate(PI, side1));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/CircleAreaCsv/CircleAreaNotSame.csv", mapper = CsvWithHeaderMapper.class)
     public void CircleAreaCsvNotSameTest(double PI, double side1, double expo) {
-        Assert.assertNotSame(expo, CircleArea.calculate(PI, side1));
+        Assert.assertNotSame(expo, circleArea.calculate(PI, side1));
     }
 
     @Test
     @FileParameters(value = "src/resources/lesson6/CircleAreaCsv/CircleAreaNotNull.csv", mapper = CsvWithHeaderMapper.class)
     public void CircleAreaCsvNotNullTest(double PI, double side1, double expo) {
-        Assert.assertNotNull(CircleArea.calculate(PI, side1));
+        Assert.assertNotNull(circleArea.calculate(PI, side1));
     }
 }
