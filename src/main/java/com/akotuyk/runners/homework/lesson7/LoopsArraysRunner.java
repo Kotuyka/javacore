@@ -8,7 +8,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LoopsArraysRunner {
-    private static int sumForExH;
+    private static int sumForExH = 0;
     private static String menuChoice;
     private int[] intArray;
     private int[][] intTwoDimensionalArray;
@@ -161,6 +161,7 @@ public class LoopsArraysRunner {
                 System.out.println("You choose (h) to enter a series of numbers to determine their amount.");
                 System.out.println("The ammount of your numbers is: " + scanerForH());
                 System.out.println("We done with (g).");
+                sumForExH = 0;
                 escFunction();
                 break;
             case "q":
@@ -179,27 +180,46 @@ public class LoopsArraysRunner {
         menuChoice = input.next();
         return menuChoice;
     }
-
+    
     public int scanerForH() {
-        int sum = 0;
-        boolean toExitTheCircle = true;
-        do {
-            Scanner input = new Scanner(System.in);
-            System.out.println("Please, enter a number you want to add: ");
-            String answer = input.next();
-            try {
-                if (answer.equals("exit")) {
-                    break;
-                } else {
-                    int inputNumber = Integer.parseInt(answer);
-                    sum = sum + inputNumber;
-                }
-            } catch (Exception e) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please, enter a number you want to add: ");
+        if (input.hasNextInt()){
+            String technical1 = input.next();
+            int inputNumber = Integer.parseInt(technical1);
+            sumForExH = sumForExH + inputNumber;
+            scanerForH();
+        } else {
+            while (!input.next().equals("exit")) {
                 System.out.println("So, you entered not a number.");
+                scanerForH();
+                break;
             }
-        } while (toExitTheCircle);
-        return sum;
+        }
+        return sumForExH;
     }
+    
+//     ВТОРОЙ ВАРИАНТ РЕШЕНИЯ. Первый мне больше нравится.
+//     public int scanerForH() {                 
+//         int sum = 0;
+//         boolean toExitTheCircle = true;
+//         do {
+//             Scanner input = new Scanner(System.in);
+//             System.out.println("Please, enter a number you want to add: ");
+//             String answer = input.next();
+//             try {
+//                 if (answer.equals("exit")) {
+//                     break;
+//                 } else {
+//                     int inputNumber = Integer.parseInt(answer);
+//                     sum = sum + inputNumber;
+//                 }
+//             } catch (Exception e) {
+//                 System.out.println("So, you entered not a number.");
+//             }
+//         } while (toExitTheCircle);
+//         return sum;
+//     }
 
     public void escFunction() {
         System.out.println("Do you want to out? (yes/no)");
