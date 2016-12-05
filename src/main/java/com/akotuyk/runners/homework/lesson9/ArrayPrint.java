@@ -2,14 +2,9 @@ package com.akotuyk.runners.homework.lesson9;
 
 import com.akotuyk.app.homework.lesson9.MethodsOfSorts;
 import com.akotuyk.app.homework.lesson9.TwoDimensionalArray;
-
 import java.util.Arrays;
 
-/**
- * Created by Huly-Buly on 03.12.2016.
- */
-
-public class sortsOfArrays {
+public class ArrayPrint {
 
 
     public static void main(String[] args) {
