@@ -1,8 +1,5 @@
 package com.akotuyk.app.homework.lesson9;
 
-/**
- * Created by Huly-Buly on 03.12.2016.
- */
 public class MethodsOfSorts {
 
     private static int[] intArray;
