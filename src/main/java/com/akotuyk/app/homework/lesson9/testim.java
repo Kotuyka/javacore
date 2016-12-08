@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class testim {
 
-    private static int[][] twoDimentionsArray = new int[15][2];      // задаем "конечный" массив с будующими парами чисел
+    private int[][] twoDimentionsArray = new int[15][2];      // задаем "конечный" массив с будующими парами чисел
     private static int[] workingArray = new int[2];                 // задаем "рабочий" массив с вариантами чисел
     private static int[] techArray = new int[2];            // задаем "технический" массив для обратного варианта рабочего массива
     private static int multiplikatorNumber1 = 0;            // инициализируем произвольную переменную №1
@@ -67,7 +67,7 @@ public class testim {
     public void checkForTheSameArrays(int[][] a, int[] b, int[] c) {                // когда цикл проходит второй раз
         for (int i = 0; i < a.length; i++) {                                        // 1у массиву конечного присваивается
             System.out.println("Проверяем келементы масива: " + Arrays.toString(a[i]));  // технический массив, вместо того
-            if (a[i] == b || a[i] == c) {                                                // что бы идти по уже созданным масивами добавлять новый следующему элементу конечного массива. Цикл закрывается в бессконечный.
+            while (a[i] == b || a[i] == c) {                                                // что бы идти по уже созданным масивами добавлять новый следующему элементу конечного массива. Цикл закрывается в бессконечный.
                 checkDouble++;
             }
         }

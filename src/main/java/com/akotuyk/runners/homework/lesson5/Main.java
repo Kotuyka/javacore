@@ -1,6 +1,7 @@
 package com.akotuyk.runners.homework.lesson5;
 
 import com.akotuyk.app.homework.lesson5.*;
+import com.akotuyk.runners.homework.MainRunnerForHomeTasks;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -21,7 +22,8 @@ public class Main {
                 "(3) to figure if you can to build a right-angled triangle;\n" +
                 "(4) to figure what area is bigger;\n" +
                 "(5) to figure what number is bigger;\n" +
-                "(0) to exit.\n" +
+                "(0) to exit;\n" +
+                "(9) to go back to the MAIN runner.\n" +
                 "What do you choose? : ");
         choose();
     }
@@ -98,6 +100,10 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("Bye!");
+                    break;
+                case 9:
+                    MainRunnerForHomeTasks mainRunnerForHomeTasks = new MainRunnerForHomeTasks();
+                    mainRunnerForHomeTasks.textMenu();
                     break;
                 default:
                     System.out.println("You entered the WRONG number. Correct yourself...");

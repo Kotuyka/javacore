@@ -2,12 +2,17 @@ package com.akotuyk.runners.homework.lesson9;
 
 import com.akotuyk.app.homework.lesson9.MethodsOfSorts;
 import com.akotuyk.app.homework.lesson9.TwoDimensionalArray;
+
 import java.util.Arrays;
 
 public class ArrayPrint {
 
-
     public static void main(String[] args) {
+        ArrayPrint arrayPrint = new ArrayPrint();
+        arrayPrint.menu();
+    }
+
+    public void menu() {
         System.out.println("Welcome to my ArrayApp.");
         MethodsOfSorts methodsOfSorts = new MethodsOfSorts();
         methodsOfSorts.intArray(10, 1000, 1);
@@ -32,6 +37,17 @@ public class ArrayPrint {
             System.out.println();
         }
         System.out.println("It's max element is: " + twoDimensionalArray.getMaxElementOfIntTwoDimensionalArray());
+
+        System.out.println("Statrt of the multiplikation table examples:");
+        int[][] arr = twoDimensionalArray.getRandomUniqueResults(15, 3);
+        for (int j = 0; j < arr.length; j++) {
+            for (int k = 0; k < arr[j].length; k++) {
+                System.out.print(arr[j][k]);
+                System.out.print(" * ");
+            }
+            System.out.println("");
+        }
+
     }
 
 

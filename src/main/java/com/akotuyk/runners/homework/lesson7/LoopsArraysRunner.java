@@ -1,6 +1,7 @@
 package com.akotuyk.runners.homework.lesson7;
 
 import com.akotuyk.app.homework.lesson7.*;
+import com.akotuyk.runners.homework.MainRunnerForHomeTasks;
 import com.akotuyk.runners.homework.lesson5.Main;
 
 import java.util.Arrays;
@@ -28,15 +29,15 @@ public class LoopsArraysRunner {
                 "(e) a two-dimensional array [8][5] with random numbers from 10 to 99.;\n" +
                 "(f) go to Homework of Lesson 5;\n" +
                 "(g) *** a two-dimensional array [8][5] with random numbers from 1 to 999;\n" +
-                "(h) *** to enter a series of numbers to determine their amount;\n" + // НЕ ПОЛУЧИЛОСЬ РЕАЛИЗОВАТЬ ДО КОНЦА.
-                "(q) to exit.\n" +
+                "(h) *** to enter a series of numbers to determine their amount;\n" +
+                "(q) to exit;\n" +
+                "(ex) to go back to the MAIN runner.\n" +
                 "What do you choose? : ");
         choose();
     }
 
     public void choose() {
-        //try {
-        String menuInput = scaner();
+        scaner();
         switch (menuChoice.toLowerCase()) {
             case "a":
                 ExerciseA exA = new ExerciseA();
@@ -157,7 +158,6 @@ public class LoopsArraysRunner {
                 escFunction();
                 break;
             case "h":
-                //ExerciseH exH = new ExerciseH();
                 System.out.println("You choose (h) to enter a series of numbers to determine their amount.");
                 System.out.println("The ammount of your numbers is: " + scanerForH());
                 System.out.println("We done with (g).");
@@ -166,6 +166,10 @@ public class LoopsArraysRunner {
                 break;
             case "q":
                 escFunction();
+                break;
+            case "ex":
+                MainRunnerForHomeTasks mainRunnerForHomeTasks = new MainRunnerForHomeTasks();
+                mainRunnerForHomeTasks.textMenu();
                 break;
             default:
                 System.out.println("Please, enter correct value. You entered the WRONG VALUE. Correct yourself...");

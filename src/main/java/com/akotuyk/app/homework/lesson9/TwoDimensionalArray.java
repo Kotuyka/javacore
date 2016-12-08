@@ -41,5 +41,31 @@ public class TwoDimensionalArray {
         return maxArrayElement;
     }
 
+    public static int[][] getRandomUniqueResults(int n, int b) {
+        int[][] array = new int[n][b];
+        int count = 0;
+        while (count < n) {
+            boolean unique = false;
+            int randomI = 2 + (int) (Math.random() * 8);
+            int randomJ = 2 + (int) (Math.random() * 8);
+            int result = randomI * randomJ;
+            for (int i = 0; i < array.length; i++) {
+                if (array[i][array[i].length - 1] != result) {
+                    unique = true;
+                } else {
+                    unique = false;
+                    break;
+                }
+            }
+            if (unique) {
+                array[count][0] = randomI;
+                array[count][1] = randomJ;
+                array[count][2] = result;
+                ++count;
+            }
+        }
+        return array;
+    }
+
 
 }
