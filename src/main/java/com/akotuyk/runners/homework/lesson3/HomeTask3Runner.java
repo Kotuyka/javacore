@@ -5,16 +5,16 @@ import com.akotuyk.runners.homework.MainRunnerForHomeTasks;
 
 import java.util.Scanner;
 
-public class Lesson3Runner {
+public class HomeTask3Runner {
     private static int menuInput;
     static int intVariable = 12522;
     static float floatVariable = 36.4028f;
     static char charVariable = 'd';
 
     public static void main(String[] args) {
-        Lesson3Runner lesson3Runner = new Lesson3Runner();
-        lesson3Runner.scanner();
-        lesson3Runner.menu();
+        HomeTask3Runner homeTask3Runner = new HomeTask3Runner();
+        homeTask3Runner.scanner();
+        homeTask3Runner.menu();
     }
 
     public void menu() {

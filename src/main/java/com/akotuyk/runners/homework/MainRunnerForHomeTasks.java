@@ -1,10 +1,10 @@
 package com.akotuyk.runners.homework;
 
-import com.akotuyk.runners.homework.lesson10.HomeTaskRunner;
-import com.akotuyk.runners.homework.lesson3.Lesson3Runner;
-import com.akotuyk.runners.homework.lesson5.Main;
-import com.akotuyk.runners.homework.lesson7.LoopsArraysRunner;
-import com.akotuyk.runners.homework.lesson9.ArrayPrint;
+import com.akotuyk.runners.homework.lesson10.HomeTask10Runner;
+import com.akotuyk.runners.homework.lesson3.HomeTask3Runner;
+import com.akotuyk.runners.homework.lesson5.HomeTask5Runner;
+import com.akotuyk.runners.homework.lesson7.HomeTask7Runner;
+import com.akotuyk.runners.homework.lesson9.HomeTask9Runner;
 
 import java.util.Scanner;
 
@@ -34,24 +34,24 @@ public class MainRunnerForHomeTasks {
     public void menu() {
         switch (menuInput) {
             case 1:
-                Lesson3Runner Lesson3Runner = new Lesson3Runner();
-                Lesson3Runner.menu();
+                HomeTask3Runner HomeTask3Runner = new HomeTask3Runner();
+                HomeTask3Runner.menu();
                 break;
             case 2:
-                Main main = new Main();
-                main.menu();
+                HomeTask5Runner homeTask5Runner = new HomeTask5Runner();
+                homeTask5Runner.menu();
                 break;
             case 3:
-                LoopsArraysRunner loopsArraysRunner = new LoopsArraysRunner();
-                loopsArraysRunner.menu();
+                HomeTask7Runner homeTask7Runner = new HomeTask7Runner();
+                homeTask7Runner.menu();
                 break;
             case 4:
-                ArrayPrint arrayPrint = new ArrayPrint();
-                arrayPrint.menu();
+                HomeTask9Runner homeTask9Runner = new HomeTask9Runner();
+                homeTask9Runner.chooseMenu();
                 break;
             case 5:
-                HomeTaskRunner homeTaskRunner = new HomeTaskRunner();
-                homeTaskRunner.menu();
+                HomeTask10Runner homeTask10Runner = new HomeTask10Runner();
+                homeTask10Runner.menu();
                 break;
             case 0:
                 System.out.println("Adieu!");
