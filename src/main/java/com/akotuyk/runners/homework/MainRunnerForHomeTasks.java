@@ -6,6 +6,7 @@ import com.akotuyk.runners.homework.lesson5.HomeTask5Runner;
 import com.akotuyk.runners.homework.lesson7.HomeTask7Runner;
 import com.akotuyk.runners.homework.lesson9.HomeTask9Runner;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainRunnerForHomeTasks {
@@ -31,35 +32,41 @@ public class MainRunnerForHomeTasks {
         scanner();
         menu();
     }
+
     public void menu() {
-        switch (menuInput) {
-            case 1:
-                HomeTask3Runner HomeTask3Runner = new HomeTask3Runner();
-                HomeTask3Runner.menu();
-                break;
-            case 2:
-                HomeTask5Runner homeTask5Runner = new HomeTask5Runner();
-                homeTask5Runner.menu();
-                break;
-            case 3:
-                HomeTask7Runner homeTask7Runner = new HomeTask7Runner();
-                homeTask7Runner.menu();
-                break;
-            case 4:
-                HomeTask9Runner homeTask9Runner = new HomeTask9Runner();
-                homeTask9Runner.chooseMenu();
-                break;
-            case 5:
-                HomeTask10Runner homeTask10Runner = new HomeTask10Runner();
-                homeTask10Runner.menu();
-                break;
-            case 0:
-                System.out.println("Adieu!");
-                break;
-            default:
-                System.out.println("You made a wrong choice. Try again.");
-                menu();
-                break;
+        try {
+            switch (menuInput) {
+                case 1:
+                    HomeTask3Runner HomeTask3Runner = new HomeTask3Runner();
+                    HomeTask3Runner.menu();
+                    break;
+                case 2:
+                    HomeTask5Runner homeTask5Runner = new HomeTask5Runner();
+                    homeTask5Runner.menu();
+                    break;
+                case 3:
+                    HomeTask7Runner homeTask7Runner = new HomeTask7Runner();
+                    homeTask7Runner.menu();
+                    break;
+                case 4:
+                    HomeTask9Runner homeTask9Runner = new HomeTask9Runner();
+                    homeTask9Runner.chooseMenu();
+                    break;
+                case 5:
+                    HomeTask10Runner homeTask10Runner = new HomeTask10Runner();
+                    homeTask10Runner.menu();
+                    break;
+                case 0:
+                    System.out.println("Adieu!");
+                    break;
+                default:
+                    System.out.println("You made a wrong choice. Try again.");
+                    menu();
+                    break;
+            }
+        } catch (InputMismatchException ex) {
+            System.out.println("You entered the WRONG value. Please, try again.");
+            menu();
         }
 
     }
