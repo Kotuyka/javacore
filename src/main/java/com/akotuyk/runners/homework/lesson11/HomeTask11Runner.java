@@ -22,7 +22,7 @@ public class HomeTask11Runner {
                 "(1) to input any quantity of numbers separated by semicolons and to sort them;\n" +
                 "(2) to input an array with different symbols and to get only letters from it;\n" +
                 "(3) to input a string and to mark some key word that will separate this string;\n" +
-                "(4) Enigma script;\n" +
+                "(4) decoding strings with Enigma and Caesar scripts;\n" +
                 "(0) exit.\n" +
                 "What do you choose? : ");
         menuSelection();
@@ -56,10 +56,10 @@ public class HomeTask11Runner {
                 escFunction();
                 break;
             case "4":
-                System.out.println("You choose an Enigma script;");
-                DecodeEncodeMethods decodeEncodeMethods = new DecodeEncodeMethods();
-                System.out.println(decodeEncodeMethods.enigmaMethod("r4feka5h5mejaghqra666"));
-                decodeEncodeMethods.caesarMethod("vlrxafaxfq");
+                System.out.println("decoding strings with Enigma and Caesar scripts");
+                System.out.println("Press (1) if you want to decode 'r4feka5h5mejaghqra666' with Enigma script;\n" +
+                                  "Press (2) if you want to decode 'vlrxafaxfq' with Caesar script.");
+                decodeMethodsSelection();
                 escFunction();
                 break;
             case "0":
@@ -89,6 +89,22 @@ public class HomeTask11Runner {
             default:
                 System.out.println("You entered the WRONG value. Please, try again.");
                 sortMethodsSelection();
+                break;
+        }
+    }
+    
+        public void decodeMethodsSelection() {
+        DecodeEncodeMethods decodeEncodeMethods = new DecodeEncodeMethods();
+        switch (scanner()) {
+            case "1":
+                System.out.println(decodeEncodeMethods.enigmaMethod("r4feka5h5mejaghqra666"));
+                break;
+            case "2":
+                decodeEncodeMethods.caesarMethod("vlrxafaxfq");
+                break;
+            default:
+                System.out.println("You entered the WRONG value. Please, try again.");
+                decodeMethodsSelection();
                 break;
         }
     }
