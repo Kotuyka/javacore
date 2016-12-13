@@ -50,50 +50,27 @@ public class StringConverter {
         return intArray;
     }
 
-//    public String stringGetOnlyLetters(String a) {
-//        String plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx";
-//        StringBuilder builder = new StringBuilder();
-//        for (int i = 0; i < a.length(); i++) {
-//            for (int j = 0; j < plainText.length(); j++) {
-//                if (a.charAt(i) == plainText.charAt(j)) {
-//                    builder.append(a.charAt(i));
-//                }
-//            }
-//        }
-//        String completedString = builder.toString();
-//        return completedString;
-//    }
+    public String[] stringGetOnlyLetters(String s1, String s2) {
+        String plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx";
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < s1.length(); i++) {
+            for (int j = 0; j < plainText.length(); j++) {
+                if (s1.charAt(i) == plainText.charAt(j)) {
+                    builder.append(s1.charAt(i));
+                }
+            }
+        }
+        String[] completedString = builder.toString().split(s2);
+        return completedString;
+    }
 
-//    public String stringGetOnlyLetters2(String a) {
-//        StringBuilder builder1 = new StringBuilder(a);
-//        String[] splittedStringArray = builder1.toString().split(";");
-//        String [] array = new String[splittedStringArray.length];
-//        for (int i = 0; i < splittedStringArray.length; i++) {
-//            array[i] = splittedStringArray[i];
-//        }
-//        String plainText = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx";
-//        StringBuilder builder2 = new StringBuilder();
-//        for (int i = 0; i < splittedStringArray.length; i++) {
-//            for (int j = 0; j < plainText.length(); j++) {
-//                if (splittedStringArray[i].equals(plainText.charAt(j))) {
-//                    builder2.append(splittedStringArray[i]);
-//                }
-//            }
-//        }
-//        return builder2.toString();
-//    }
-
-    public String[] splitByKeywordString(String a, String b){
-        StringBuilder builder = new StringBuilder(a);
-        String[] arrayString = builder.toString().split(b);
-
-//
-//        String[] arrayString = builder.toString().split(";");
-//        intArray = new int[arrayString.length];
-//        for (int i = 0; i < arrayString.length; i++) {
-//            intArray[i] = Integer.parseInt(arrayString[i]);
-//        }
-        return arrayString;
+    public String[] splitByKeywordString(String a, String b) {
+        if (a.contains(b)) {
+            String[] splitedString = a.split(b);
+            return splitedString;
+        }
+        String[] notSplitedString = a.split("_");
+        return notSplitedString;
     }
 
 
