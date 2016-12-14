@@ -2,6 +2,7 @@ package com.akotuyk.runners.homework.lesson11;
 
 import com.akotuyk.app.homework.lesson11.DecodeEncodeMethods;
 import com.akotuyk.app.homework.lesson11.StringConverter;
+import com.akotuyk.runners.homework.MainRunnerForHomeTasks;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,6 +25,7 @@ public class HomeTask11Runner {
                 "(3) to input a string and to mark some key word that will separate this string;\n" +
                 "(4) decoding strings with Enigma and Caesar scripts;\n" +
                 "(0) exit.\n" +
+                "(9) to go back to the MAIN runner.\n" +
                 "What do you choose? : ");
         menuSelection();
     }
@@ -33,12 +35,11 @@ public class HomeTask11Runner {
         switch (scanner()) {
             case "1":
                 System.out.println("You choose to input any quantity of numbers separated by semicolons and to sort them.");
-                System.out.println("Please enter any numbers separated by semicolons:");
-                stringConverter.intArray(scanner());
+                chooseTheWayToSplit();
                 System.out.println("You entered next values: "
                         + Arrays.toString(stringConverter.getIntArray()));
                 System.out.println("Would you like to sort them in ascending or descending order? Press 1 or 2:");
-                sortMethodsSelection();
+                selectSortMethods();
                 escFunction();
                 break;
             case "2":
@@ -58,12 +59,16 @@ public class HomeTask11Runner {
             case "4":
                 System.out.println("decoding strings with Enigma and Caesar scripts");
                 System.out.println("Press (1) if you want to decode 'r4feka5h5mejaghqra666' with Enigma script;\n" +
-                                  "Press (2) if you want to decode 'vlrxafaxfq' with Caesar script.");
-                decodeMethodsSelection();
+                        "Press (2) if you want to decode 'vlrxafaxfq' with Caesar script.");
+                selectDecodeMethods();
                 escFunction();
                 break;
             case "0":
                 System.out.println("Bye!");
+                break;
+            case "9":
+                MainRunnerForHomeTasks mainRunnerForHomeTasks = new MainRunnerForHomeTasks();
+                mainRunnerForHomeTasks.textMenu();
                 break;
             default:
                 System.out.println("You entered the WRONG value. Please, try again.");
@@ -72,12 +77,31 @@ public class HomeTask11Runner {
         }
     }
 
-    public String scanner() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+    public void chooseTheWayToSplit() {
+        System.out.println("Do you want to enter some specified splitter? (yes)\n" +
+                "Or you want standard semicolons spliter stayed? (no)");
+        StringConverter stringConverter = new StringConverter();
+        switch (scanner()) {
+            case "yes":
+                System.out.println("Please, enter some specified splitter. \n" +
+                        "Any ONE symbol, except '.' and ',': ");
+                String specSpliter = spliterScanner();
+                System.out.println("Now, please enter any numbers separated by your specified splitter: ");
+                stringConverter.arrayParser(scanner(), specSpliter);
+                break;
+            case "no":
+                System.out.println("Please enter any numbers separated by semicolons:");
+                String semicolons = ";";
+                stringConverter.arrayParser(scanner(), semicolons);
+                break;
+            default:
+                System.out.println("You entered the WRONG VALUE. Correct yourself...");
+                chooseTheWayToSplit();
+                break;
+        }
     }
 
-    public void sortMethodsSelection() {
+    public void selectSortMethods() {
         StringConverter stringConverter = new StringConverter();
         switch (scanner()) {
             case "1":
@@ -88,12 +112,12 @@ public class HomeTask11Runner {
                 break;
             default:
                 System.out.println("You entered the WRONG value. Please, try again.");
-                sortMethodsSelection();
+                selectSortMethods();
                 break;
         }
     }
-    
-        public void decodeMethodsSelection() {
+
+    public void selectDecodeMethods() {
         DecodeEncodeMethods decodeEncodeMethods = new DecodeEncodeMethods();
         switch (scanner()) {
             case "1":
@@ -104,10 +128,30 @@ public class HomeTask11Runner {
                 break;
             default:
                 System.out.println("You entered the WRONG value. Please, try again.");
-                decodeMethodsSelection();
+                selectDecodeMethods();
                 break;
         }
     }
+
+    //////////////////////////////////////////SCANNERS////////////////////
+    public String scanner() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    public String spliterScanner() {
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder builder = new StringBuilder(scanner.nextLine());
+        while ((builder.length() > 1) || (builder.toString().equals(".")) || (builder.toString().equals(","))) {
+            System.out.println("You entered the WRONG VALUE. Correct yourself...");
+            System.out.println(builder.toString());
+            builder.delete(0, (builder.length() - 1));
+            builder = new StringBuilder(scanner.nextLine());
+        }
+        String stringToPrint = builder.toString();
+        return stringToPrint;
+    }
+//////////////////////////////////////////////////////////////////////
 
     public void escFunction() {
         System.out.println("Do you want to out? (yes/no)");
@@ -125,8 +169,6 @@ public class HomeTask11Runner {
                 break;
         }
     }
-
-
 
     public void printArray(String[] s) {
         for (int i = 0; i < s.length; i++) {

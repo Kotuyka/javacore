@@ -8,12 +8,12 @@ import java.util.Arrays;
 public class StringConverter {
     private static int[] intArray;
 
-    public void intArray(String a) {
-        this.setIntArray(a);
+    public void intArray(String s1, String s2) {
+        this.setIntArray(s1, s2);
     }
 
-    private int[] setIntArray(String a) {
-        arrayParser(a);
+    private int[] setIntArray(String s1, String s2) {
+        arrayParser(s1, s2);
         return intArray;
     }
 
@@ -21,12 +21,12 @@ public class StringConverter {
         return intArray;
     }
 
-    public int[] arrayParser(String a) {
-        StringBuilder builder = new StringBuilder(a);
-        String[] arrayString = builder.toString().split(";");
-        intArray = new int[arrayString.length];
-        for (int i = 0; i < arrayString.length; i++) {
-            intArray[i] = Integer.parseInt(arrayString[i]);
+    public int[] arrayParser(String s1, String s2) {
+        StringBuilder builder = new StringBuilder(s1);
+        String[] stringArrays = builder.toString().split(s2);
+        intArray = new int[stringArrays.length];
+        for (int i = 0; i < stringArrays.length; i++) {
+            intArray[i] = Integer.parseInt(stringArrays[i]);
         }
         return intArray;
     }
@@ -60,17 +60,17 @@ public class StringConverter {
                 }
             }
         }
-        String[] completedString = builder.toString().split(s2);
-        return completedString;
+        String[] onlyLettersString = builder.toString().split(s2);
+        return onlyLettersString;
     }
 
     public String[] splitByKeywordString(String a, String b) {
         if (a.contains(b)) {
-            String[] splitedString = a.split(b);
-            return splitedString;
+            String[] splittedString = a.split(b);
+            return splittedString;
         }
-        String[] notSplitedString = a.split("_");
-        return notSplitedString;
+        String[] notSplittedString = a.split("_");
+        return notSplittedString;
     }
 
 

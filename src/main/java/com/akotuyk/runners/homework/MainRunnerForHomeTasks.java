@@ -1,6 +1,7 @@
 package com.akotuyk.runners.homework;
 
 import com.akotuyk.runners.homework.lesson10.HomeTask10Runner;
+import com.akotuyk.runners.homework.lesson11.HomeTask11Runner;
 import com.akotuyk.runners.homework.lesson3.HomeTask3Runner;
 import com.akotuyk.runners.homework.lesson5.HomeTask5Runner;
 import com.akotuyk.runners.homework.lesson7.HomeTask7Runner;
@@ -27,6 +28,7 @@ public class MainRunnerForHomeTasks {
                 "(3) creation and fillings arrays (Lesson 7);\n" +
                 "(4) methods of arrays sorts (Lesson 9);\n" +
                 "(5) figure out if the string is polindrom (Lesson 10);\n" +
+                "(6) split array methods and decoding Enigma and Caesar scripts (Lesson 11);\n" +
                 "(0) exit.\n" +
                 "What do you choose? : ");
         scanner();
@@ -55,6 +57,10 @@ public class MainRunnerForHomeTasks {
                 case 5:
                     HomeTask10Runner homeTask10Runner = new HomeTask10Runner();
                     homeTask10Runner.menu();
+                    break;
+                case 6:
+                    HomeTask11Runner homeTask11Runner = new HomeTask11Runner();
+                    homeTask11Runner.menuText();
                     break;
                 case 0:
                     System.out.println("Adieu!");
