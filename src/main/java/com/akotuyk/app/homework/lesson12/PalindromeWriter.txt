@@ -1,0 +1,5 @@
+poop is palindrome
+fgdfg is NOT palindrome
+mooM is palindrome
+dfhdfgdf is NOT palindrome
+null is NOT palindrome

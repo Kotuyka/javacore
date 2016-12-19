@@ -55,6 +55,7 @@ fabric.properties
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
  *.iml
+javacore.iml
 # modules.xml
 # .idea/misc.xml 
 # *.ipr
@@ -62,6 +63,7 @@ fabric.properties
 
 ### Java ###
 *.class
+classes/*
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

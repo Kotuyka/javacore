@@ -2,11 +2,13 @@ package com.akotuyk.runners.homework;
 
 import com.akotuyk.runners.homework.lesson10.HomeTask10Runner;
 import com.akotuyk.runners.homework.lesson11.HomeTask11Runner;
+import com.akotuyk.runners.homework.lesson12.HomeTask12Runner;
 import com.akotuyk.runners.homework.lesson3.HomeTask3Runner;
 import com.akotuyk.runners.homework.lesson5.HomeTask5Runner;
 import com.akotuyk.runners.homework.lesson7.HomeTask7Runner;
 import com.akotuyk.runners.homework.lesson9.HomeTask9Runner;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -29,6 +31,7 @@ public class MainRunnerForHomeTasks {
                 "(4) methods of arrays sorts (Lesson 9);\n" +
                 "(5) figure out if the string is polindrom (Lesson 10);\n" +
                 "(6) split array methods and decoding Enigma and Caesar scripts (Lesson 11);\n" +
+                "(7) read and write data to files, properties file creation;\n" +
                 "(0) exit.\n" +
                 "What do you choose? : ");
         scanner();
@@ -62,6 +65,10 @@ public class MainRunnerForHomeTasks {
                     HomeTask11Runner homeTask11Runner = new HomeTask11Runner();
                     homeTask11Runner.menuText();
                     break;
+                case 7:
+                    HomeTask12Runner homeTask12Runner = new HomeTask12Runner();
+                    homeTask12Runner.menuText();
+                    break;
                 case 0:
                     System.out.println("Adieu!");
                     break;
@@ -73,6 +80,8 @@ public class MainRunnerForHomeTasks {
         } catch (InputMismatchException ex) {
             System.out.println("You entered the WRONG value. Please, try again.");
             menu();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }

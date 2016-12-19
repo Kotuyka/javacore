@@ -1,0 +1,7 @@
+moom is palindrome
+poop is NOT palindrome
+toot is NOT palindrome
+mOom is NOT palindrome
+mooM is NOT palindrome
+fdf is NOT palindrome
+ is palindrome

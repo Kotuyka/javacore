@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class ArrayPrint {
 
     public void menu() {
-        System.out.println("You can choose the method of testing if there is a palindrome in input:\n" +
+        System.out.println("You can choose the method of array sorts:\n" +
                 "(1) bubble Sort From Low To Higher;\n" +
                 "(2) bubble Sort From Higher ToLow;\n" +
                 "(3) selection Sort From Low To Higher;\n" +
