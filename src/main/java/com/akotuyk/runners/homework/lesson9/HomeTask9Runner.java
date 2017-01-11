@@ -23,25 +23,25 @@ public class HomeTask9Runner {
         int number = scanerForMenu();
         switch (number) {
             case 1:
-                methodsOfSorts.intArray(10, 1000, 1);
+                methodsOfSorts.setRandomArray(10, 1000, 1);
                 arrayPrint.printRandomArray(methodsOfSorts.getIntArray());
                 arrayPrint.printMethod(methodsOfSorts.bubbleSortFromLowToHigher(methodsOfSorts.getIntArray()), number);
                 escFunction();
                 break;
             case 2:
-                methodsOfSorts.intArray(10, 1000, 1);
+                methodsOfSorts.setRandomArray(10, 1000, 1);
                 arrayPrint.printRandomArray(methodsOfSorts.getIntArray());
                 arrayPrint.printMethod(methodsOfSorts.bubbleSortFromHigherToLow(methodsOfSorts.getIntArray()), number);
                 escFunction();
                 break;
             case 3:
-                methodsOfSorts.intArray(10, 1000, 1);
+                methodsOfSorts.setRandomArray(10, 1000, 1);
                 arrayPrint.printRandomArray(methodsOfSorts.getIntArray());
                 arrayPrint.printMethod(methodsOfSorts.selectionSortFromLowToHigher(methodsOfSorts.getIntArray()), number);
                 escFunction();
                 break;
             case 4:
-                methodsOfSorts.intArray(10, 1000, 1);
+                methodsOfSorts.setRandomArray(10, 1000, 1);
                 arrayPrint.printRandomArray(methodsOfSorts.getIntArray());
                 arrayPrint.printMethod(methodsOfSorts.selectionSortFromHigherToLow(methodsOfSorts.getIntArray()), number);
                 escFunction();

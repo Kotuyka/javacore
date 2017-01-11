@@ -4,11 +4,7 @@ public class MethodsOfSorts {
 
     private static int[] intArray;
 
-    public void intArray(int a, int b, int c) {
-        this.setRandomArray(a, b, c);
-    }
-
-    private int[] setRandomArray(int a, int b, int c) {
+    public int[] setRandomArray(int a, int b, int c) {
         intArray = new int[a];
         for (int i = 0; i < a; i++) {
             intArray[i] = ((int) ((Math.random() * b) + c));
