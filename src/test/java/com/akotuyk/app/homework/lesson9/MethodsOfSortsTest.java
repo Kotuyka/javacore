@@ -28,9 +28,11 @@ public class MethodsOfSortsTest {
 
     MethodsOfSorts methodsOfSorts = new MethodsOfSorts();
 
+///////////////////////////////////////////////////////////////////  get int array
+
     @Test
     public void getIntArray() throws Exception {
-        methodsOfSorts.setRandomArray(2, 5,6);
+        methodsOfSorts.setRandomArray(2, 5, 6);
         Assert.assertNotNull(methodsOfSorts.getIntArray());
     }
 
@@ -38,21 +40,44 @@ public class MethodsOfSortsTest {
 
     @Test
     public void setRandomArray() throws Exception {
-        Assert.assertNotNull(methodsOfSorts.setRandomArray(2, 5,6));
+        Assert.assertNotNull(methodsOfSorts.setRandomArray(2, 5, 6));
     }
 
     @Test
     public void setRandomArrayNotEquals() throws Exception {
-        Assert.assertThat(new int[]{2, 8, 3}, not(equalTo(methodsOfSorts.setRandomArray(2, 5,6))));
+        Assert.assertThat(new int[]{2, 8, 3}, not(equalTo(methodsOfSorts.setRandomArray(2, 5, 6))));
     }
 
     @Test
     public void setRandomArrayFalse() throws Exception { // NotEquals 2
-        Assert.assertFalse(Arrays.equals(new int[]{2, 8, 3}, (methodsOfSorts.setRandomArray(2, 5,6))));
+        Assert.assertFalse(Arrays.equals(new int[]{2, 8, 3}, (methodsOfSorts.setRandomArray(2, 5, 6))));
     }
 
+    @Test
+    public void setRandomArrayFalse2() throws Exception {
+        int[] array = methodsOfSorts.setRandomArray(10, 1000, 1);
+        int flag = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] >= 1000 || array[i] <= 0) {
+                flag++;
+            }
+        }
+        Assert.assertFalse(flag > 0);
+    }
 
-///////////////////////////////////////////////////////////////////  bubble sort from low to higher
+    @Test
+    public void setRandomArrayTrue() throws Exception {
+        int[] array = methodsOfSorts.setRandomArray(10, 1000, 1);
+        int flag = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] >= 1000 || array[i] <= 0) {
+                flag++;
+            }
+        }
+        Assert.assertTrue(flag == 0);
+    }
+
+    ///////////////////////////////////////////////////////////////////  bubble sort from low to higher
     @Test
     public void bubbleSortFromLowToHigherEquals() throws Exception {
         int[] intArray = {2, 8, 3};

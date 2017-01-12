@@ -48,8 +48,8 @@ public class HomeTask9Runner {
                 break;
             case 5:
                 TwoDimensionalArray twoDimensionalArray = new TwoDimensionalArray();
-                twoDimensionalArray.intTwoDimensionalArray(99, -99);
-                arrayPrint.printTwoDimensionalArray(twoDimensionalArray.getIntTwoDimensionalArray(), twoDimensionalArray.getMaxElementOfIntTwoDimensionalArray());
+                twoDimensionalArray.setRandomTwoDimensionalArray(99, -99);
+                arrayPrint.printTwoDimensionalArray(twoDimensionalArray.getIntTwoDimensionalArray(), twoDimensionalArray.getMaxElementOfIntTwoDimensionalArray(twoDimensionalArray.getIntTwoDimensionalArray()));
                 escFunction();
                 break;
             case 6:

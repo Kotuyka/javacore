@@ -66,7 +66,7 @@ public class testim {
 
     public void checkForTheSameArrays(int[][] a, int[] b, int[] c) {                // когда цикл проходит второй раз
         for (int i = 0; i < a.length; i++) {                                        // 1у массиву конечного присваивается
-            System.out.println("Проверяем келементы масива: " + Arrays.toString(a[i]));  // технический массив, вместо того
+            System.out.println("Проверяем элементы масива: " + Arrays.toString(a[i]));  // технический массив, вместо того
             while (a[i] == b || a[i] == c) {                                                // что бы идти по уже созданным масивами добавлять новый следующему элементу конечного массива. Цикл закрывается в бессконечный.
                 checkDouble++;
             }

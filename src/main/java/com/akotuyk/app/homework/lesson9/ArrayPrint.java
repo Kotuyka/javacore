@@ -47,23 +47,6 @@ public class ArrayPrint {
             default:
                 System.out.println("Please, enter correct value. You entered the WRONG VALUE. Correct yourself...");
                 break;
-
-
-//            TwoDimensionalArray twoDimensionalArray = new TwoDimensionalArray();
-//            twoDimensionalArray.intTwoDimensionalArray(99, -99);
-//            System.out.println("We created random array[5][8]: ");
-//            for (
-//                    int j = 0; j < twoDimensionalArray.getIntTwoDimensionalArray().length; j++)
-//
-//            {
-//                for (int k = 0; k < 5; k++) {
-//                    System.out.print(twoDimensionalArray.getIntTwoDimensionalArray()[j][k]);
-//                    System.out.print(" ");
-//                }
-//                System.out.println();
-//            }
-
-
         }
     }
 
@@ -79,7 +62,7 @@ public class ArrayPrint {
             }
             System.out.println();
         }
-        System.out.print("It's max element is: " + a);
+        System.out.println("It's max element is: " + a);
     }
 
     public void printUniqueResults() {
