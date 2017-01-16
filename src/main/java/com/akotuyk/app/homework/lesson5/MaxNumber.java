@@ -11,6 +11,6 @@ public class MaxNumber {
         } else {
             return false;
         }
-
     }
+
 }

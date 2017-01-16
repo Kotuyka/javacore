@@ -1,5 +1,7 @@
 package com.akotuyk.app.homework.lesson11;
 
+import com.akotuyk.runners.homework.MenuNumbersAndAnswers;
+
 import java.util.Scanner;
 
 /**
@@ -52,19 +54,26 @@ public class DecodeEncodeMethods {
     public void checkForSense(StringBuilder a) {
         System.out.println("Now you must try to read it. If it has no sense, we'll try another step.\n" +
                 "So,is it have any sense? (yes/no)");
-        Scanner input = new Scanner(System.in);
-        switch (input.nextLine()) {
-            case "no":
-                countTryNumber++;
-                break;
-            case "yes":
-                codeIsDecoded = true;
-                decodedString = a.toString();
-                break;
-            default:
-                System.out.println("You entered the WRONG VALUE. Correct yourself...");
-                checkForSense(a);
-                break;
+        try {
+            Scanner input = new Scanner(System.in);
+            String tech = input.next().toUpperCase();
+            MenuNumbersAndAnswers menuInput = MenuNumbersAndAnswers.valueOf(tech);
+            switch (menuInput) {
+                case NO:
+                    countTryNumber++;
+                    break;
+                case YES:
+                    codeIsDecoded = true;
+                    decodedString = a.toString();
+                    break;
+                default:
+                    System.out.println("You entered the WRONG VALUE. Correct yourself...");
+                    checkForSense(a);
+                    break;
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("You entered the WRONG VALUE. Correct yourself...");
+            checkForSense(a);
         }
     }
 }

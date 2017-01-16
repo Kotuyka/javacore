@@ -9,11 +9,9 @@ import com.akotuyk.runners.homework.lesson7.HomeTask7Runner;
 import com.akotuyk.runners.homework.lesson9.HomeTask9Runner;
 
 import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainRunnerForHomeTasks {
-    private static int menuInput;
 
     public static void main(String[] args) {
         MainRunnerForHomeTasks mainRunnerForHomeTasks = new MainRunnerForHomeTasks();
@@ -25,51 +23,51 @@ public class MainRunnerForHomeTasks {
         System.out.println("You need to choose the number of theme and corresponding runner will start.");
         System.out.println("So, here are the themes:");
         System.out.println("You can choose the number of action:\n" +
-                "(1) convert primitives (Lesson 3);\n" +
-                "(2) calculation with circles and triangles (Lesson 5);\n" +
-                "(3) creation and fillings arrays (Lesson 7);\n" +
-                "(4) methods of arrays sorts (Lesson 9);\n" +
-                "(5) figure out if the string is polindrom (Lesson 10);\n" +
-                "(6) split array methods and decoding Enigma and Caesar scripts (Lesson 11);\n" +
-                "(7) read and write data to files, properties file creation;\n" +
-                "(0) exit.\n" +
+                "(FIRST) convert primitives (Lesson 3);\n" +
+                "(SECOND) calculation with circles and triangles (Lesson 5);\n" +
+                "(THIRD) creation and fillings arrays (Lesson 7);\n" +
+                "(FOURTH) methods of arrays sorts (Lesson 9);\n" +
+                "(FIFTH) figure out if the string is polindrom (Lesson 10);\n" +
+                "(SIXTH) split array methods and decoding Enigma and Caesar scripts (Lesson 11);\n" +
+                "(SEVENTH) read and write data to files, properties file creation (Lesson 12);\n" +
+                "(ZERO) exit.\n" +
                 "What do you choose? : ");
-        scanner();
         menu();
     }
 
     public void menu() {
         try {
+            MenuNumbersAndAnswers menuInput = MenuNumbersAndAnswers.valueOf(scanner());
             switch (menuInput) {
-                case 1:
+                case FIRST:
                     HomeTask3Runner HomeTask3Runner = new HomeTask3Runner();
-                    HomeTask3Runner.menu();
+                    HomeTask3Runner.menuText();
                     break;
-                case 2:
+                case SECOND:
                     HomeTask5Runner homeTask5Runner = new HomeTask5Runner();
-                    homeTask5Runner.menu();
+                    homeTask5Runner.menuText();
                     break;
-                case 3:
+                case THIRD:
                     HomeTask7Runner homeTask7Runner = new HomeTask7Runner();
-                    homeTask7Runner.menu();
+                    homeTask7Runner.menuText();
                     break;
-                case 4:
+                case FOURTH:
                     HomeTask9Runner homeTask9Runner = new HomeTask9Runner();
-                    homeTask9Runner.chooseMenu();
+                    homeTask9Runner.menu();
                     break;
-                case 5:
+                case FIFTH:
                     HomeTask10Runner homeTask10Runner = new HomeTask10Runner();
-                    homeTask10Runner.menu();
+                    homeTask10Runner.menuText();
                     break;
-                case 6:
+                case SIXTH:
                     HomeTask11Runner homeTask11Runner = new HomeTask11Runner();
                     homeTask11Runner.menuText();
                     break;
-                case 7:
+                case SEVENTH:
                     HomeTask12Runner homeTask12Runner = new HomeTask12Runner();
                     homeTask12Runner.menuText();
                     break;
-                case 0:
+                case ZERO:
                     System.out.println("Adieu!");
                     break;
                 default:
@@ -77,17 +75,18 @@ public class MainRunnerForHomeTasks {
                     menu();
                     break;
             }
-        } catch (InputMismatchException ex) {
+        } catch (IllegalArgumentException e) {
             System.out.println("You entered the WRONG value. Please, try again.");
             menu();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void scanner() {
+    private String scanner() {
+        System.out.println("Please, write down the number (by letters) of the menu item you'd like to choose:");
         Scanner input = new Scanner(System.in);
-        menuInput = input.nextInt();
+        String menuInput = input.next().toUpperCase();
+        return menuInput;
     }
 }

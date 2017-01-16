@@ -1,12 +1,13 @@
 package com.akotuyk.app.homework.lesson9;
 
 import com.akotuyk.runners.homework.MainRunnerForHomeTasks;
+import com.akotuyk.runners.homework.MenuNumbersAndAnswers;
 
 import java.util.Arrays;
 
 public class ArrayPrint {
 
-    public void menu() {
+    public void menuText() {
         System.out.println("You can choose the method of array sorts:\n" +
                 "(1) bubble Sort From Low To Higher;\n" +
                 "(2) bubble Sort From Higher ToLow;\n" +
@@ -17,36 +18,44 @@ public class ArrayPrint {
                 "(0) to exit;\n" +
                 "(9) to go back to the MAIN runner.\n" +
                 "What do you choose? : ");
+        System.out.println("Please, write down the number (by letters) of the menu item you'd like to choose:");
     }
 
-    public void printMethod(int[] a, int b) {
-        switch (b) {
-            case 1:
+    public void printMethod(int[] a, String b) {
+        try {
+            MenuNumbersAndAnswers menuInput = MenuNumbersAndAnswers.valueOf(b);
+            switch (menuInput) {
+                case FIRST:
                 System.out.println("We sorted the array by BUBBLE sort method, from low to higher numbers: \n"
                         + Arrays.toString(a));
                 break;
-            case 2:
+            case SECOND:
                 System.out.println("We sorted the array by BUBBLE sort method, from higher to low numbers: \n"
                         + Arrays.toString(a));
                 break;
-            case 3:
+            case THIRD:
                 System.out.println("We sorted the array by SELECTION sort method, from low to higher numbers: \n"
                         + Arrays.toString(a));
                 break;
-            case 4:
+            case FOURTH:
                 System.out.println("We sorted the array by SELECTION sort method, from higher to low numbers: \n"
                         + Arrays.toString(a));
                 break;
-            case 0:
+                case NINTH:
+                    MainRunnerForHomeTasks mainRunnerForHomeTasks = new MainRunnerForHomeTasks();
+                    mainRunnerForHomeTasks.textMenu();
+                    break;
+            case ZERO:
                 System.out.println("Bye!");
-                break;
-            case 9:
-                MainRunnerForHomeTasks mainRunnerForHomeTasks = new MainRunnerForHomeTasks();
-                mainRunnerForHomeTasks.textMenu();
                 break;
             default:
                 System.out.println("Please, enter correct value. You entered the WRONG VALUE. Correct yourself...");
                 break;
+        }
+        } catch (IllegalArgumentException e) {
+            System.out.println("You made a wrong choice. Try again.");
+            MainRunnerForHomeTasks mainRunnerForHomeTasks = new MainRunnerForHomeTasks();
+            mainRunnerForHomeTasks.menu();
         }
     }
 

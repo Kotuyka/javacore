@@ -14,7 +14,7 @@ public class MethodsToCheckForPolindrom {
     }
 
     public boolean dividedStringMethod(String polindrom) {
-        for (int i = 0; i < ((polindrom.length())/2); i++) {
+        for (int i = 0; i < ((polindrom.length()) / 2); i++) {
             if (polindrom.toLowerCase().charAt(i) != polindrom.toLowerCase().charAt(polindrom.length() - i - 1)) {
                 return false;
             }

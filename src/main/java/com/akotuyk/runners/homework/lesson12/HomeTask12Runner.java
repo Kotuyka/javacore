@@ -4,6 +4,7 @@ import com.akotuyk.app.homework.lesson12.Reader;
 import com.akotuyk.app.homework.lesson12.SortArrayMethods;
 import com.akotuyk.app.homework.lesson12.Writer;
 import com.akotuyk.runners.homework.MainRunnerForHomeTasks;
+import com.akotuyk.runners.homework.MenuNumbersAndAnswers;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -20,96 +21,114 @@ public class HomeTask12Runner {
 
     public void menuText() throws IOException {
         System.out.println("You can choose the number of action:\n" +
-                "(1) to read a numerical array (separated by semicolons) from the file and to sort it into another file;\n" +
-                "(2) to read words in column and check if it is a palindrome;\n" +
-                "(3) to enter a file name, to read it and to save into the another, after 'exit' input;\n" +
-                "(4) to create properties file;\n" +
-                "(0) exit.\n" +
-                "(9) to go back to the MAIN runner.\n" +
+                "(FIRST) to read a numerical array (separated by semicolons) from the file and to sort it into another file;\n" +
+                "(SECOND) to read words in column and check if it is a palindrome;\n" +
+                "(THIRD) to enter a file name, to read it and to save into the another, after 'exit' input;\n" +
+                "(FOURTH) to create properties file;\n" +
+                "(ZERO) exit.\n" +
+                "(NINTH) to go back to the MAIN runner.\n" +
                 "What do you choose? : ");
-        menuSelection();
+        menu();
     }
 
-    public void menuSelection() throws IOException {
+    private void menu() throws IOException {
         Reader reader = new Reader();
         Writer writer = new Writer();
-        switch (scanner()) {
-            case "1":
-                System.out.println("So we get next an array from the file: ");
-                reader.setIntValueArray();
-                printArray(reader.getIntValueArray());
-                System.out.println("Now, choose the way you want to sort the array before writhing it into file: ");
-                sortMethodSelection(reader.getIntValueArray());
-                escFunction();
-                break;
-            case "2":
-                System.out.println("Now we'll read the file and chek it for palindrome");
-                reader.setLine();
-                System.out.println("So, we have next strings in file: ");
-                printStringArray(reader.getLine());
-                writer.stringFileWriter(reader.getLine());
-                System.out.println("And we checked if there were palondromes and wrote answers to PalindromeWriter file.");
-                escFunction();
-                break;
-            case "3":
-                System.out.println("Enter the name of the file you want to save to: ");
-                String fileName = scanner();
-                writer.stringWriterToFile(fileName);
-                System.out.println("We done with it. All your lines were saved.");
-                escFunction();
-                break;
-            case "4":
-                System.out.println("You choose to create config.properties file.");
-                System.out.println("Enter the line you want to set as properties value in the next format: \n" +
-                        "database1,localhost1");
-                writer.writerToPropertyFile();
-                System.out.println("We done with it. All your config properties were saved.");
-                escFunction();
-                break;
-            case "0":
-                System.out.println("Bye!");
-                break;
-            case "9":
-                MainRunnerForHomeTasks mainRunnerForHomeTasks = new MainRunnerForHomeTasks();
-                mainRunnerForHomeTasks.textMenu();
-                break;
-            default:
-                System.out.println("You entered the WRONG value. Please, try again.");
-                menuSelection();
-                break;
+        try {
+            MenuNumbersAndAnswers menuInput = MenuNumbersAndAnswers.valueOf(MenuScanner());
+            switch (menuInput) {
+                case FIRST:
+                    System.out.println("So we get next an array from the file: ");
+                    reader.setIntValueArray();
+                    printArray(reader.getIntValueArray());
+                    System.out.println("Now, choose the way you want to sort the array before writhing it into file: ");
+                    sortMethodSelection(reader.getIntValueArray());
+                    escFunction();
+                    break;
+                case SECOND:
+                    System.out.println("Now we'll read the file and chek it for palindrome");
+                    reader.setLine();
+                    System.out.println("So, we have next strings in file: ");
+                    printStringArray(reader.getLine());
+                    writer.stringFileWriter(reader.getLine());
+                    System.out.println("And we checked if there were palondromes and wrote answers to PalindromeWriter file.");
+                    escFunction();
+                    break;
+                case THIRD:
+                    System.out.println("Enter the name of the file you want to save to: ");
+                    String fileName = scanner();
+                    writer.stringWriterToFile(fileName);
+                    System.out.println("We done with it. All your lines were saved.");
+                    escFunction();
+                    break;
+                case FOURTH:
+                    System.out.println("You choose to create config.properties file.");
+                    System.out.println("Enter the line you want to set as properties value in the next format: \n" +
+                            "database1,localhost1");
+                    writer.writerToPropertyFile();
+                    System.out.println("We done with it. All your config properties were saved.");
+                    escFunction();
+                    break;
+                case NINTH:
+                    MainRunnerForHomeTasks mainRunnerForHomeTasks = new MainRunnerForHomeTasks();
+                    mainRunnerForHomeTasks.textMenu();
+                    break;
+                case ZERO:
+                    System.out.println("Bye!");
+                    break;
+                default:
+                    System.out.println("You entered the WRONG value. Please, try again.");
+                    menu();
+                    break;
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Please, enter correct value. You entered the WRONG VALUE. Try again.");
+            menu();
         }
     }
 
-    public int[] sortMethodSelection(int[] array) throws IOException {
+    private String MenuScanner() {
+        Scanner input = new Scanner(System.in);
+        String menuInput = input.next().toUpperCase();
+        return menuInput;
+    }
+
+    private int[] sortMethodSelection(int[] array) throws IOException {
         System.out.println("You can choose the method of array sorts:\n" +
-                "(1) bubble Sort From Low To Higher;\n" +
-                "(2) bubble Sort From Higher ToLow;\n" +
-                "(3) selection Sort From Low To Higher;\n" +
-                "(4) selection Sort From Higher To Low;\n" +
-                "(0) do not sort this array.\n" +
+                "(FIRST) bubble Sort From Low To Higher;\n" +
+                "(SECOND) bubble Sort From Higher ToLow;\n" +
+                "(THIRD) selection Sort From Low To Higher;\n" +
+                "(FOURTH) selection Sort From Higher To Low;\n" +
+                "(ZERO) do not sort this array.\n" +
                 "What do you choose? : ");
         SortArrayMethods sortArrayMethods = new SortArrayMethods();
         sortArrayMethods.setSortedIntArray(array);
-        switch (scanner()) {
-            case "1":
-                sortArrayMethods.bubbleSortFromLowToHigher();
-                break;
-            case "2":
-                sortArrayMethods.bubbleSortFromHigherToLow();
-                break;
-            case "3":
-                sortArrayMethods.selectionSortFromLowToHigher();
-                break;
-            case "4":
-                sortArrayMethods.selectionSortFromHigherToLow();
-                break;
-            case "0":
-                System.out.println("We wouldn't sort this array.");
-                break;
-            default:
-                System.out.println("You entered the WRONG value. Please, try again.");
-                menuSelection();
-                break;
+        try {
+            MenuNumbersAndAnswers menuInput = MenuNumbersAndAnswers.valueOf(MenuScanner());
+            switch (menuInput) {
+                case FIRST:
+                    sortArrayMethods.bubbleSortFromLowToHigher();
+                    break;
+                case SECOND:
+                    sortArrayMethods.bubbleSortFromHigherToLow();
+                    break;
+                case THIRD:
+                    sortArrayMethods.selectionSortFromLowToHigher();
+                    break;
+                case FOURTH:
+                    sortArrayMethods.selectionSortFromHigherToLow();
+                    break;
+                case ZERO:
+                    System.out.println("We wouldn't sort this array.");
+                    break;
+                default:
+                    System.out.println("You entered the WRONG value. Please, try again.");
+                    menu();
+                    break;
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("You entered the WRONG VALUE. Correct yourself...");
+            menu();
         }
         System.out.println("Here what we'll wright to the outputFile: ");
         printArray(sortArrayMethods.getSortedIntArray());
@@ -124,31 +143,36 @@ public class HomeTask12Runner {
     }
 
 
-    public void escFunction() throws IOException {
+    private void escFunction() throws IOException {
         System.out.println("Do you want to out? (yes/no)");
-        Scanner input = new Scanner(System.in);
-        switch (input.next()) {
-            case "no":
-                menuText();
-                break;
-            case "yes":
-                System.out.println("Bye!");
-                break;
-            default:
-                System.out.println("Is it hard to enter a yes/no? You entered the WRONG VALUE. Correct yourself...");
-                escFunction();
-                break;
+        try {
+            MenuNumbersAndAnswers menuInput = MenuNumbersAndAnswers.valueOf(MenuScanner());
+            switch (menuInput) {
+                case NO:
+                    menuText();
+                    break;
+                case YES:
+                    System.out.println("Bye!");
+                    break;
+                default:
+                    System.out.println("Is it hard to enter a yes/no? You entered the WRONG VALUE. Correct yourself...");
+                    escFunction();
+                    break;
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Is it hard to enter a yes/no? You entered the WRONG VALUE. Correct yourself...");
+            escFunction();
         }
     }
 
-    public void printArray(int[] a) {
+    private void printArray(int[] a) {
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + ", ");
         }
         System.out.println();
     }
 
-    public void printStringArray(String[] a) {
+    private void printStringArray(String[] a) {
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i].toString() + ", ");
         }
