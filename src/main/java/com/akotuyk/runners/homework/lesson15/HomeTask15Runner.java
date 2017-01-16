@@ -8,7 +8,7 @@ import com.akotuyk.app.homework.lesson15.CustomBicycle;
 /**
  * Created by Huly-Buly on 11.01.2017.
  */
-public class Lesson15Runner {
+public class HomeTask15Runner {
 
     public static void main(String[] args) {
 
