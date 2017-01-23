@@ -1,5 +1,8 @@
 package com.akotuyk.runners.homework.lesson17;
 
+import com.akotuyk.app.homework.lesson17.ArraySorterGenerics;
+import com.akotuyk.app.homework.lesson17.ReadCSVWithScanner;
+import com.akotuyk.runners.homework.MainRunnerForHomeTasks;
 import com.akotuyk.runners.homework.MenuNumbersAndAnswers;
 
 import java.io.IOException;
@@ -12,50 +15,69 @@ import java.util.Scanner;
 public class HomeTask17Runner {
 
     public static void main(String[] arg) throws IOException {
-        System.out.println("Welcome to my Phone-book app");
         HomeTask17Runner homeTask17Runner = new HomeTask17Runner();
+//        homeTask17Runner.genericsSort();
         homeTask17Runner.menuText();
+
+    }
+
+    private void genericsSort() {
+        System.out.println("We'll sort your array");
+        ArraySorterGenerics<Integer> integerBox = new ArraySorterGenerics<Integer>(new Integer[]{25, 5824, 54, 685, 564});
+        System.out.println(integerBox);
+
+        ArraySorterGenerics<Double> integerBox2 = new ArraySorterGenerics<Double>(new Double[]{25.5, 5824.45, 54.52, 685.1, 564.5});
+        System.out.println(integerBox2);
+
+//        ArraySorterGenerics<String> integerBox3 = new ArraySorterGenerics<String>(new String[]{25.5, 5824.45, 54.52, 685.1, 564.5});   Все ок.
+//        System.out.println(integerBox3);                                                                                              Вызывает ошибку еще на этапе компиляции
     }
 
     public void menuText() throws IOException {
-        System.out.println("Here what you can do:\n" +
-                "(FIRST) You can look through the categories for the contact you are looking for\n" +
-                "(SECOND) You can create new category for contacts\n" +
-                "(SECOND) You can create new category for contacts ....\n");
-//        Structure.createSetCollection();
-
-
-
+        System.out.println("You can choose the number of action:\n" +
+                "(FIRST) Поиск по всем карточкам\n" +
+                "(SECOND) Поиск сотрудников\n" +
+                "(THIRD) Поиск студентов\n;\n" +
+                "(ZERO) exit.\n" +
+                "(NINTH) to go back to the MAIN runner.\n" +
+                "What do you choose? : ");
+        csvReader();    // must relocate it later
+        menu();
     }
 
-//    public void runner() throws IOException {
-//        System.out.println("Here are the categories you have:");
-//        System.out.println(Structure.getHSet());
-//        System.out.println("Would you like to create new category? (yes/no)");
-//        System.out.println("Or you'd like to look through some category? (look)");
-//        MenuNumbersAndAnswers menuInput = MenuNumbersAndAnswers.valueOf(MenuScanner());
-//        try {
-//            switch (menuInput) {
-//                case YES:
-//                    System.out.println("Please, enter new category name:");
-//                    Structure.setAddToSetCollection(MenuScanner());
-//                    runner();
-//                    break;
-//                case LOOK:
-//                    break;
-//                case NO:
-//                    escFunction();
-//                    break;
-//                default:
-//                    System.out.println("You entered the WRONG value. Please, try again.");
-//                    runner();
-//                    break;
-//            }
-//        } catch (IllegalArgumentException e) {
-//            System.out.println("Please, enter correct value. You entered the WRONG VALUE. Try again.");
-//            runner();
-//        }
-//    }
+    public void menu() {
+        try {
+
+            MenuNumbersAndAnswers menuInput = MenuNumbersAndAnswers.valueOf(MenuScanner());
+            switch (menuInput) {
+                case FIRST:
+                    System.out.println("You choose Поиск по всем карточкам.");
+                    escFunction();
+                    break;
+                case SECOND:
+                    System.out.println("You choose Поиск сотрудников.");
+                    escFunction();
+                    break;
+                case THIRD:
+                    System.out.println("You choose Поиск студентов.");
+                    escFunction();
+                    break;
+                case NINTH:
+                    MainRunnerForHomeTasks mainRunnerForHomeTasks = new MainRunnerForHomeTasks();
+                    mainRunnerForHomeTasks.textMenu();
+                    break;
+                case ZERO:
+                    System.out.println("Bye!");
+                    break;
+                default:
+                    System.out.println("You entered the WRONG value. Please, try again.");
+                    menu();
+                    break;
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Please, enter correct value. You entered the WRONG VALUE. Try again.");
+            menu();
+    }}
 
     private String MenuScanner() {
         Scanner input = new Scanner(System.in);
@@ -63,7 +85,7 @@ public class HomeTask17Runner {
         return menuInput;
     }
 
-    private void escFunction() throws IOException {
+    public void escFunction() {
         System.out.println("Do you want to out? (yes/no)");
         try {
             MenuNumbersAndAnswers menuInput = MenuNumbersAndAnswers.valueOf(MenuScanner());
@@ -82,48 +104,27 @@ public class HomeTask17Runner {
         } catch (IllegalArgumentException e) {
             System.out.println("Is it hard to enter a yes/no? You entered the WRONG VALUE. Correct yourself...");
             escFunction();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-//    public void runner() {
-//        int winCounter = 0;
-//        int uniqueCounter = 0;
-//        do {
-//            FamousPeoples randomFamousPeoples = FamousPeoples.getRandom();
-//            if (!(uniqueCounter == randomFamousPeoples.hashCode())) {
-//                System.out.println();  // easier to read process with it. Thats all.
-//                System.out.println("What is the " + randomFamousPeoples.getFullName() + " age?");
-//                if (answerDOB() == (2017 - randomFamousPeoples.getDOB())) {
-//                    System.out.println("You are correct!");
-//                    System.out.println("Is " + randomFamousPeoples.getFullName() + " still alive?");
-//                    if (answerIsAlive().equals(randomFamousPeoples.getIsAlive())) {
-//                        System.out.println("You are right");
-//                        System.out.println(randomFamousPeoples.toString());
-//                        winCounter++;
-//                        uniqueCounter = randomFamousPeoples.hashCode();
-//                    } else {
-//                        System.out.println("You wrong! Try again.");
-//                        uniqueCounter = randomFamousPeoples.hashCode();
-//                    }
-//                } else {
-//                    System.out.println("You wrong! Try again.");
-//                    uniqueCounter = randomFamousPeoples.hashCode();
-//                }
-//            }
-//        } while (winCounter < 3);
-//        System.out.println("YOU WIN!");
-//    }
-//
-//    private int answerDOB() {
+//    private boolean orScanner() {
 //        Scanner input = new Scanner(System.in);
-//        int dob = input.nextInt();
-//        return dob;
-//    }
+//        String menuInput = input.nextLine();
+//        if (menuInput.equals("name")){
+//            System.out.println("Тогда будем искать по имени. Введи его:");
+//        } else if (menuInput.equals("soname")){
 //
-//    private String answerIsAlive() {
-//        Scanner input = new Scanner(System.in);
-//        String isAlive = input.next().toLowerCase();
-//        return isAlive;
+//        } else
 //    }
+
+    private void csvReader() throws IOException {
+        ReadCSVWithScanner readCSVWithScanner = new ReadCSVWithScanner();
+        readCSVWithScanner.setEmployeeCSVreader("D:\\Progect\\javacore\\src\\resources\\lesson17\\Employees.csv");
+        System.out.println(readCSVWithScanner.getListEmployee());  // tech string for check
+        readCSVWithScanner.setStudentsCSVreader("D:\\Progect\\javacore\\src\\resources\\lesson17\\Students.csv");
+        System.out.println(readCSVWithScanner.getListStudents());  // tech string for check
+    }
 
 }
