@@ -23,6 +23,7 @@ public class ReadCSVWithScanner {
         Scanner scanner = null;
         int index = 0;
         List<Employee> empList = new ArrayList<>();
+        line = reader.readLine();       // Skipping first line while reading CSV file
 
         while ((line = reader.readLine()) != null) {
             Employee emp = new Employee();
@@ -60,6 +61,7 @@ public class ReadCSVWithScanner {
         Scanner scanner = null;
         int index = 0;
         List<Students> empList = new ArrayList<>();
+        line = reader.readLine();          // Skipping first line while reading CSV file
 
         while ((line = reader.readLine()) != null) {
             Students emp = new Students();
