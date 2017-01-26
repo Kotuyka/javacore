@@ -10,7 +10,7 @@ public class SearchEngine<T> {
     public boolean nameEmployeeSearch(List<Employee> t, String name) {
         for (int i = 0; i < t.size(); i++) {
             Employee tech = t.get(i);
-            if (tech.getName() != null && tech.getSurname().contains(name)) {
+            if (tech.getName() != null && tech.getName().contains(name)) {
                 System.out.println(t.get(i));
                 return true;
             }

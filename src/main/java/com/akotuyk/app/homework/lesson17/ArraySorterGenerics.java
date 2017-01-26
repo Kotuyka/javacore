@@ -31,7 +31,7 @@ public class ArraySorterGenerics<T extends Number & Comparable> {
         return array;
     }
 
-//    public static <T extends Number & Comparable> T[] bubbleSortFromHigherToLow(T[] t) {
+//    public static <T extends Number & Comparable> T[] bubbleSortFromHigherToLow(T[] t) {    // as a variant
 //        for (int i = 0; i < t.length-1; i++) {
 //            for (int j = i + 1; j < t.length; j++) {
 //                if (t[j - 1].compareTo(t[j])<=0) {
