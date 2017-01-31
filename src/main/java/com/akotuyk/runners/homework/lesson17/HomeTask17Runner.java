@@ -110,7 +110,7 @@ public class HomeTask17Runner {
     }
 
     public void secondMenuText() throws IOException {
-        System.out.println("You can choose the number of action:\n" +
+        System.out.println("You can choose the number of next actions:\n" +
                 "(FIRST) Employee search by name\n" +
                 "(SECOND) Employee search by surname\n" +
                 "(THIRD) Employee search by department\n" +
@@ -129,58 +129,65 @@ public class HomeTask17Runner {
         ReadCSVWithScanner readCSVWithScanner = new ReadCSVWithScanner();
         readCSVWithScanner.setEmployeeCSVreader("D:\\Progect\\javacore\\src\\resources\\lesson17\\Employees.csv");
         readCSVWithScanner.setStudentsCSVreader("D:\\Progect\\javacore\\src\\resources\\lesson17\\Students.csv");
-//        System.out.println(readCSVWithScanner.getListEmployee());  // tech string for understanding what is in the CSV
-//        System.out.println(readCSVWithScanner.getListStudents());  // tech string for understanding what is in the CSV
+//        System.out.println(readCSVWithScanner.getListEmployee());  // tech string for understanding what is in the Employee CSV
+//        System.out.println(readCSVWithScanner.getListStudents());  // tech string for understanding what is in the Students CSV
 
         try {
             MenuNumbersAndAnswers menuInput = MenuNumbersAndAnswers.valueOf(scanners.MenuScanner());
             switch (menuInput) {
                 case FIRST:
                     System.out.println("You choose search by Employee name.");
+                    System.out.println("Please enter the name of employee you are looking for:");
                     SearchEngine<Employee> searcherEmployee1 = new SearchEngine<>();
-                    if (!searcherEmployee1.uniqSearch(readCSVWithScanner.getListEmployee(), "name", scanners.stringScanner())) {
+                    if (!searcherEmployee1.uniqueSearch(readCSVWithScanner.getListEmployee(), "name", scanners.stringScanner())) {
                         System.out.println("There is no person with such name in employees.");
                     }
                     break;
                 case SECOND:
                     System.out.println("You choose search by Employee surname.");
+                    System.out.println("Please enter the surname of employee you are looking for:");
                     SearchEngine<Employee> searcherEmployee2 = new SearchEngine<>();
-                    if (!searcherEmployee2.uniqSearch(readCSVWithScanner.getListEmployee(), "surname", scanners.stringScanner())) {
+                    if (!searcherEmployee2.uniqueSearch(readCSVWithScanner.getListEmployee(), "surname", scanners.stringScanner())) {
                         System.out.println("There is no person with such surname in employees.");
                     }
                     break;
                 case THIRD:
                     System.out.println("You choose search by Employee department.");
+                    System.out.println("Please enter name of the employee department you are looking for:");
                     SearchEngine<Employee> searcherEmployee3 = new SearchEngine<>();
-                    if (!searcherEmployee3.uniqSearch(readCSVWithScanner.getListEmployee(), "department", scanners.stringScanner())) {
+                    if (!searcherEmployee3.uniqueSearch(readCSVWithScanner.getListEmployee(), "department", scanners.stringScanner())) {
                         System.out.println("There is no person with such department in employees.");
                     }
                     break;
                 case FOURTH:
                     System.out.println("You choose search by Students name.");
+                    System.out.println("Please enter the name of students you are looking for:");
                     SearchEngine<Students> searcherStudents1 = new SearchEngine<>();
-                    if (!searcherStudents1.uniqSearch(readCSVWithScanner.getListStudents(), "name", scanners.stringScanner())) {
+                    if (!searcherStudents1.uniqueSearch(readCSVWithScanner.getListStudents(), "name", scanners.stringScanner())) {
                         System.out.println("There is no person with such name in students.");
                     }
                     break;
                 case FIFTH:
                     System.out.println("You choose search by Students surname.");
+                    System.out.println("Please enter the surname of students you are looking for:");
                     SearchEngine<Students> searcherStudents2 = new SearchEngine<>();
-                    if (!searcherStudents2.uniqSearch(readCSVWithScanner.getListStudents(), "surname", scanners.stringScanner())) {
+                    if (!searcherStudents2.uniqueSearch(readCSVWithScanner.getListStudents(), "surname", scanners.stringScanner())) {
                         System.out.println("There is no person with such surname in students.");
                     }
                     break;
                 case SIXTH:
                     System.out.println("You choose search by Students department.");
+                    System.out.println("Please enter name of the students department you are looking for:");
                     SearchEngine<Students> searcherStudents3 = new SearchEngine<>();
-                    if (!searcherStudents3.uniqSearch(readCSVWithScanner.getListStudents(), "department", scanners.stringScanner())) {
+                    if (!searcherStudents3.uniqueSearch(readCSVWithScanner.getListStudents(), "department", scanners.stringScanner())) {
                         System.out.println("There is no person with such department in students.");
                     }
                     break;
                 case SEVENTH:
                     System.out.println("You choose search by Students course.");
+                    System.out.println("Please enter the number of the course you are looking for:");
                     SearchEngine<Students> searcherStudents4 = new SearchEngine<>();
-                    if (!searcherStudents4.uniqSearch(readCSVWithScanner.getListStudents(), "course", scanners.stringScanner())) {
+                    if (!searcherStudents4.uniqueSearch(readCSVWithScanner.getListStudents(), "course", scanners.stringScanner())) {
                         System.out.println("There is no person with such course in students.");
                     }
                     break;
@@ -206,7 +213,7 @@ public class HomeTask17Runner {
         readCSVWithScanner.setEmployeeCSVreader("D:\\Progect\\javacore\\src\\resources\\lesson17\\Employees.csv");
         readCSVWithScanner.setStudentsCSVreader("D:\\Progect\\javacore\\src\\resources\\lesson17\\Students.csv");
         SearchEngine<Human> searcherHuman = new SearchEngine<>();
-        System.out.println("Please enter name or surname you want to search");
+        System.out.println("Please enter name or surname you want to search: ");
         Scanners scanners = new Scanners();
         String request = scanners.stringScanner();
         if (!searcherHuman.generalSearch(readCSVWithScanner.getListEmployee(), request)) {
