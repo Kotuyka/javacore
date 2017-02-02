@@ -16,7 +16,7 @@ public class ReadCSVWithScanner {
     private List<Employee> listEmployee;
     private List<Students> listStudents;
 
-    public void setEmployeeCSVreader(String fileName) throws IOException {
+    public List<Employee> setEmployeeCSVreader(String fileName) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(fileName));
 
         String line = null;
@@ -47,14 +47,14 @@ public class ReadCSVWithScanner {
             empList.add(emp);
         }
         reader.close();
-        this.listEmployee = empList;
+        return this.listEmployee = empList;
     }
 
     public List<Employee> getListEmployee() {
         return listEmployee;
     }
 
-    public void setStudentsCSVreader(String fileName) throws IOException {
+    public List<Students> setStudentsCSVreader(String fileName) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(fileName));
 
         String line = null;
@@ -87,7 +87,7 @@ public class ReadCSVWithScanner {
             empList.add(emp);
         }
         reader.close();
-        this.listStudents = empList;
+        return this.listStudents = empList;
     }
 
     public List<Students> getListStudents() {

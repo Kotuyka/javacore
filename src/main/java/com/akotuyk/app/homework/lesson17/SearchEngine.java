@@ -60,7 +60,7 @@ public class SearchEngine<T> {
             }
             return false;
         }
-        return false;                         // if method think he got not Students or Employee class
+        return false;                                   // if method think he got not Students or Employee class
     }
 
     public <T extends Human> boolean generalSearch(List<T> t, String search) {
