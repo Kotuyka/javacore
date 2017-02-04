@@ -1,7 +1,7 @@
 package com.akotuyk.app.homework.lesson17;
 
 /**
- * Created by Huly-Buly on 26.01.2017.
+ * Created by Kotuyk A on 26.01.2017.
  */
 public class Human {
 

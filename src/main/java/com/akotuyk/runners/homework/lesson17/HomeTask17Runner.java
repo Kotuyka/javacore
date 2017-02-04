@@ -7,15 +7,18 @@ import com.akotuyk.runners.homework.MenuNumbersAndAnswers;
 import java.io.IOException;
 
 /**
- * Created by Huly-Buly on 16.01.2017.
+ * Created by Kotuyk A on 16.01.2017.
  */
 
 public class HomeTask17Runner {
 
+    private String pathToEmployeeCVS = "D:\\Progect\\javacore\\src\\resources\\lesson17\\Employees.csv";
+    private String pathToStudentsCVS = "D:\\Progect\\javacore\\src\\resources\\lesson17\\Students.csv";
+
     public static void main(String[] arg) throws IOException {
         HomeTask17Runner homeTask17Runner = new HomeTask17Runner();
-//        homeTask17Runner.genericsSort();
-//        homeTask17Runner.exercise3();
+//        homeTask17Runner.genericsSort();      // Homework exercise 1 activation
+//        homeTask17Runner.exercise3();         // Homework exercise 3 activation
         homeTask17Runner.mainMenuText();
 
     }
@@ -33,7 +36,7 @@ public class HomeTask17Runner {
 //
     }
 
-//    private void exercise3() {                                                           // Homework exercise 3 is done
+//    private void exercise3() {                             // Homework exercise 3 is done
 //        System.out.println("I'll check you string for duplicates and sort it");
 //        System.out.println("I'll check you string for duplicates");
 //        DuplicatesCheck DuplicatesCheck = new DuplicatesCheck();
@@ -62,7 +65,10 @@ public class HomeTask17Runner {
                     break;
                 case SECOND:
                     System.out.println("You chose general search.");
-                    searchGeneralMenu();
+                    System.out.println("Please enter name or surname you want to search: ");
+                    scanners = new Scanners();
+                    String request = scanners.stringScanner();
+                    searchGeneralMenu(pathToEmployeeCVS, pathToStudentsCVS, request);
                     escFunction();
                     break;
                 case NINTH:
@@ -121,14 +127,14 @@ public class HomeTask17Runner {
                 "(ZERO) exit.\n" +
                 "(NINTH) to go back to the MAINmenu runner.\n" +
                 "What do you choose? : ");
-        searchMenu();
+        searchMenu(pathToEmployeeCVS, pathToStudentsCVS);
     }
 
-    public void searchMenu() throws IOException {
+    public void searchMenu(String employeePath, String studentsPath) throws IOException {
         Scanners scanners = new Scanners();
         ReadCSVWithScanner readCSVWithScanner = new ReadCSVWithScanner();
-        readCSVWithScanner.setEmployeeCSVreader("D:\\Progect\\javacore\\src\\resources\\lesson17\\Employees.csv");
-        readCSVWithScanner.setStudentsCSVreader("D:\\Progect\\javacore\\src\\resources\\lesson17\\Students.csv");
+        readCSVWithScanner.ReadCSV(employeePath);
+        readCSVWithScanner.ReadCSV(studentsPath);
 //        System.out.println(readCSVWithScanner.getListEmployee());  // tech string for understanding what is in the Employee CSV
 //        System.out.println(readCSVWithScanner.getListStudents());  // tech string for understanding what is in the Students CSV
 
@@ -208,14 +214,11 @@ public class HomeTask17Runner {
         }
     }
 
-    public void searchGeneralMenu() throws IOException {
+    public void searchGeneralMenu(String employeePath, String studentsPath, String request) throws IOException {
         ReadCSVWithScanner readCSVWithScanner = new ReadCSVWithScanner();
-        readCSVWithScanner.setEmployeeCSVreader("D:\\Progect\\javacore\\src\\resources\\lesson17\\Employees.csv");
-        readCSVWithScanner.setStudentsCSVreader("D:\\Progect\\javacore\\src\\resources\\lesson17\\Students.csv");
+        readCSVWithScanner.ReadCSV(employeePath);
+        readCSVWithScanner.ReadCSV(studentsPath);
         SearchEngine<Human> searcherHuman = new SearchEngine<>();
-        System.out.println("Please enter name or surname you want to search: ");
-        Scanners scanners = new Scanners();
-        String request = scanners.stringScanner();
         if (!searcherHuman.generalSearch(readCSVWithScanner.getListEmployee(), request)) {
             if (!searcherHuman.generalSearch(readCSVWithScanner.getListStudents(), request)) {
                 System.out.println("There is no such person in university.");

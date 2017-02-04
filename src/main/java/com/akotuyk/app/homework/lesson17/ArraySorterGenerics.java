@@ -3,7 +3,7 @@ package com.akotuyk.app.homework.lesson17;
 import java.util.Arrays;
 
 /**
- * Created by Huly-Buly on 22.01.2017.
+ * Created by Kotuyk A on 22.01.2017.
  */
 
 public class ArraySorterGenerics<T extends Number & Comparable> {
